@@ -14,5 +14,5 @@ echo "http://localhost:%PORT%"
 java -jar "%BASE_DIR%\..\test\lib\jstestdriver\JsTestDriver.jar" ^
      --port %PORT% ^
      --browserTimeout 20000 ^
-     --config "%BASE_DIR%\..\config\jsTestDriver-scenario.conf" ^
+     --config "%BASE_DIR%\..\config\angular\jsTestDriver-scenario.conf" ^
      --basePath "%BASE_DIR%\.."
