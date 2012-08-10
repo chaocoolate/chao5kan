@@ -4,9 +4,12 @@
 3. `./script/test.sh`
 
 ### Run e2e test:
-1. `./script/web-server.js`
-2. Open [test website](http://localhost:8000/test/functional/javascript/runner.html)
+1. `./script/e2e-test-server.sh`
+2. Open [test server](http://localhost:9877)
+3. `./script/e2e-test.sh`
 
 ### Todo
+
+### Done
 * Run e2e test in command line.
 * Use production partial html files instead of duplicate fixture partial html files.
