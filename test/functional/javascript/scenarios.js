@@ -5,11 +5,12 @@
 describe('my app', function() {
 
   beforeEach(function() {
-    browser().navigateTo('/index.html');
+    browser().navigateTo('/test');
   });
 
 
   it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
+    console.log(browser().window().href());
     expect(browser().location().url()).toBe("/view1");
   });
 
