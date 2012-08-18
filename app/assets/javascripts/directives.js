@@ -2,10 +2,15 @@
 
 /* Directives */
 
-
-angular.module('chaocoolate.directives', []).
-directive('appVersion', ['version', function(version) {
-	return function(scope, elm, attrs) {
-		elm.text(version);
+angular.module('chaocoolate.directives', [])
+.directive('navigateTo', ['$location', function($location) {
+	return {
+		restrict: 'A',
+		link: function(scope, element, attrs) {
+			$(element).on('click', function() {
+				$location.path(attrs.navigateTo);
+				scope.$apply();
+			});
+		}
 	};
 }]);
