@@ -2,8 +2,13 @@
 
 /* Controllers */
 
-function MyCtrl1() {}
-MyCtrl1.$inject = [];
+function HomeCtrl($scope, $location) {}
 
-function MyCtrl2() {}
-MyCtrl2.$inject = [];
+function MagazineViewCtrl() {
+	$(document).ready(function() {
+		$("#book").turn({
+			elevation: 50,
+			page: 2
+		});
+	});
+}

@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require angular/angular
+//= require jquery
+//= require turn.min
 //= require app
 //= require services
 //= require controllers
