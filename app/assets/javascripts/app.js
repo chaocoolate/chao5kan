@@ -1,8 +1,8 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('chaocoolate', ['chaocoolate.filters', 'chaocoolate.services', 'chaocoolate.directives']).
-config(['$routeProvider', function($routeProvider) {
+angular.module('chaocoolate', ['chaocoolate.filters', 'chaocoolate.services', 'chaocoolate.directives'])
+.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/home', {
 		templateUrl: 'partials/home.html',
 		controller: HomeController
@@ -13,5 +13,11 @@ config(['$routeProvider', function($routeProvider) {
 	});
 	$routeProvider.otherwise({
 		redirectTo: '/home'
+	});
+}])
+.run(['$rootScope', function($rootScope) {
+	$rootScope.$on("$routeChangeSuccess", function() {
+		$('body').hide();
+		$('body').fadeIn(1000);
 	});
 }]);

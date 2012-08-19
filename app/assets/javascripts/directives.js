@@ -2,23 +2,34 @@
 
 /* Directives */
 
-angular.module('chaocoolate.directives', []).directive('navigateTo', ['$location', function($location) {
+angular.module('chaocoolate.directives', [])
+.directive('navigateTo', ['$location', function($location) {
 	return {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 			$(element).on('click', function() {
-				$location.path(attrs.navigateTo);
-				scope.$apply();
+				$('body').fadeOut(1000, function() {
+					$location.path(attrs.navigateTo);
+					scope.$apply();
+				});
 			});
 		}
 	};
-}]).directive('turnOptions', function() {
+}])
+.directive('turnOptions', function() {
 	return {
 		restrict: 'A',
 		link: function(scope, element, attrs) {
 			//TODO: replace eval
-			var options = eval('({' + attrs.turnOptions + '})');
-			$(element).turn(options);
+			var options = scope.$eval('({' + attrs.turnOptions + '})');
+			//TODO: replace setInterval
+			var $element = $(element)
+			var init = setInterval(function() {
+				if ($element.is(':visible')) {
+					$element.turn(options);
+					clearInterval(init);
+				}
+			}, 1);
 		}
-	};
+	}
 });
