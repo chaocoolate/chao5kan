@@ -2,13 +2,7 @@
 
 /* Controllers */
 
-function HomeCtrl($scope, $location) {}
+function HomeController($scope, $location) {}
+HomeController.$inject = ['$scope', '$location'];
 
-function MagazineViewCtrl() {
-	$(document).ready(function() {
-		$("#book").turn({
-			elevation: 50,
-			page: 2
-		});
-	});
-}
+function MagazineViewController() {}

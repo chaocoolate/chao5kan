@@ -5,11 +5,11 @@ angular.module('chaocoolate', ['chaocoolate.filters', 'chaocoolate.services', 'c
 config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/home', {
 		templateUrl: 'partials/home.html',
-		controller: HomeCtrl
+		controller: HomeController
 	});
 	$routeProvider.when('/magazine.view', {
 		templateUrl: 'partials/magazine.view.html',
-		controller: MagazineViewCtrl
+		controller: MagazineViewController
 	});
 	$routeProvider.otherwise({
 		redirectTo: '/home'

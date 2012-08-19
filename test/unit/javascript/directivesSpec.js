@@ -16,4 +16,16 @@ describe('directives', function() {
       });
     });
   });
+
+  describe('navigate-to', function() {
+    xit('should navigate to URL', function() {
+      // module(function($provide) {
+        // $provide.value('navigate-to', 'URL');
+      // });
+      inject(function($compile, $rootScope, $location) {
+        var element = $compile('<span data-navigate-to="URL"></span>')($rootScope);
+        expect($location.path()).toEqual('URL');
+      })
+    });
+  });
 });

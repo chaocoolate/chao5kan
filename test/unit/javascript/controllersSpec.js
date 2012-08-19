@@ -1,29 +1,23 @@
 'use strict';
 
-/* jasmine specs for controllers go here */
-
-describe('MyCtrl1', function(){
-  var myCtrl1;
+describe('HomeController', function(){
+  var HomeController;
 
   beforeEach(function(){
-    myCtrl1 = new MyCtrl1();
+    // HomeController = new HomeController();
   });
-
 
   it('should ....', function() {
     //spec body
   });
 });
 
-
-describe('MyCtrl2', function(){
-  var myCtrl2;
-
+describe('MagazineViewController', function(){
+  var MagazineViewController;
 
   beforeEach(function(){
-    myCtrl2 = new MyCtrl2();
+    // MagazineViewController = new MagazineViewController();
   });
-
 
   it('should ....', function() {
     //spec body
