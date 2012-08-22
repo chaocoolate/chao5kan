@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Chaocoolate::Application.load_tasks
+Chao5kan::Application.load_tasks

@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('chaocoolate', ['chaocoolate.filters', 'chaocoolate.services', 'chaocoolate.directives'])
+angular.module('chao5kan', ['chao5kan.filters', 'chao5kan.services', 'chao5kan.directives'])
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/home', {
 		templateUrl: 'partials/home.html',

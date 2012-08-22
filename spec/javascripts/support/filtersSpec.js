@@ -3,7 +3,7 @@
 /* jasmine specs for filters go here */
 
 describe('filter', function() {
-  beforeEach(module('chaocoolate.filters'));
+  beforeEach(module('chao5kan.filters'));
 
 
   describe('interpolate', function() {

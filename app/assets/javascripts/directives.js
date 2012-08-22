@@ -2,7 +2,7 @@
 
 /* Directives */
 
-angular.module('chaocoolate.directives', [])
+angular.module('chao5kan.directives', [])
 .directive('navigateTo', ['$location', function($location) {
 	return {
 		restrict: 'A',

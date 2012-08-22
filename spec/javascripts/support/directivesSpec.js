@@ -3,7 +3,7 @@
 /* jasmine specs for directives go here */
 
 describe('directives', function() {
-  beforeEach(module('chaocoolate.directives'));
+  beforeEach(module('chao5kan.directives'));
 
   describe('navigate-to', function() {
     it('should navigate to /URL after body fadeout', function() {

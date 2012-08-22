@@ -3,7 +3,7 @@
 /* jasmine specs for services go here */
 
 describe('service', function() {
-  beforeEach(module('chaocoolate.services'));
+  beforeEach(module('chao5kan.services'));
 
 
   describe('version', function() {
