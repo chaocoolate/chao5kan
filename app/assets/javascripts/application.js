@@ -13,5 +13,6 @@
 //= require jquery-1.8.0.min
 //= require angular-1.0.1.min
 //= require routes
-//= require intro.controller
+//= require page.controller
+//= require magazine.controller
 //= require_tree .
