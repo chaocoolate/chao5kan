@@ -1,13 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-  before_filter :intercept_html_requests
-
-  layout nil
-
-  private
-
-  def intercept_html_requests
-    render('layouts/index') if request.format == Mime::HTML
+  def template
+  	render "/template"
   end
 end
