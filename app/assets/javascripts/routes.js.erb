@@ -1,0 +1,8 @@
+var Route = {
+  html4: function($routeProvider) {
+    $routeProvider.when('/',      { redirectTo:'/intro' });
+    $routeProvider.when('/intro', { controller:IntroController, templateUrl:'<%= asset_path 'html4/intro.html' %>'});
+    $routeProvider.otherwise(     { redirectTo:'/'});
+  }
+}
+angular.module('chao5kan', []).config(Route.html4);
