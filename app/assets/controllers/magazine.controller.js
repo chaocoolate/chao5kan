@@ -1,5 +1,7 @@
 var Magazine = {
   view: {
-    controller: function($scope, $location, $routeParam) {}
+    controller: function($scope, $location, $routeParams) {
+      $scope.id = $routeParams.id
+    }
   }
 }
