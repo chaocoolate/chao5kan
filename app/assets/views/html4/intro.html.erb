@@ -1,0 +1,19 @@
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+  <div class="logo"></div>
+  <div class="canvas">
+    <div class="pic"><div class="clickable"><%=I18n.translate "page.intro.click_here" %></div></div>
+  </div>
+  <div class="desc">
+    <h1><%=I18n.translate "page.intro.heading" %></h1>
+    <%= description_to_html "page.intro.description" %>
+  </div>
+  <ul class="choices">
+    <li class="male20 clickable"></li>
+    <li class="male30 clickable"></li>
+    <li class="female30 clickable"></li>
+    <li class="female20 clickable"></li>
+    <li class="custom clickable"></li>
+  </ul> 
+
+
+<a href="#/magazine/1"><%=I18n.translate "page.intro.click_here" %></a>
