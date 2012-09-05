@@ -15,4 +15,5 @@
 //= require routes
 //= require page.controller
 //= require magazine.controller
+//= require app.control
 //= require_tree .

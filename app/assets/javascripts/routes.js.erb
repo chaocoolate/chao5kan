@@ -1,8 +1,5 @@
-var Route = {
-  html4: function($routeProvider) {
-    $routeProvider.when('/intro',        { controller:Page.intro.controller,    templateUrl:'<%= asset_path 'html4/intro.html' %>'});
-    $routeProvider.when('/magazine/:id', { controller:Magazine.view.controller, templateUrl:'<%= asset_path 'html4/magazine.view.html' %>'});
-    $routeProvider.otherwise(            { redirectTo:'/intro'});
-  }
-}
-angular.module('chao5kan', []).config(Route.html4);
+angular.module('chao5kan', ['app.control']).config(function($routeProvider) {
+  $routeProvider.when('/intro',        { controller:Page.intro.controller,    templateUrl:'<%= asset_path 'html4/intro.html' %>'});
+  $routeProvider.when('/magazine/:id', { controller:Magazine.view.controller, templateUrl:'<%= asset_path 'html4/magazine.view.html' %>'});
+  $routeProvider.otherwise(            { redirectTo:'/intro'});
+});

@@ -1,0 +1,58 @@
+*
+  margin:  0
+  padding: 0
+  border:  0
+  +box-sizing(border-box)
+
+html
+  height: 100%
+  vertical-align: baseline
+  outline: 0
+
+body
+  height: 100%
+  background: image-url('bg.png')
+  color: $color-text
+  font:
+    family: arial,tahoma,sans-serif
+    size: 100%
+  line-height: 1.2
+  .cn
+    letter-spacing: 0.1em
+
+ol, ul
+  list-style: none
+
+h1
+  color: black
+  font:
+    size: 40px
+
+h5
+  color: black
+  font:
+    size: 12px
+
+em
+  font-style: normal
+
+// -----------------------------------------------------------------------------
+
+.hidden
+  display: none
+.clickable
+  cursor: hand
+  cursor: pointer
+.logo
+  position: absolute
+  top: 30px
+  left: 30px
+  width: 60px
+  height: 60px
+  background: image-url('img.sprite.png') no-repeat
+.canvas
+  position: absolute
+  width: 100%
+  height: 100%
+  padding: 80px 40px 40px 140px
+  background: image-url('bg.gradient.png') repeat-x left bottom

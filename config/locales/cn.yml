@@ -1,6 +1,15 @@
 cn:
   app:
+    name:  "【潮5刊】"
     title: "【潮5刊】朝我看．潮我刊"
+  persona:
+    mr:
+      trendy: "时尚男士"
+      professional: "事业男士"
+    ms:
+      trendy: "时尚女士"
+      professional: "事业女士"
+    me: "我自已"
   page:
     intro:
       heading:     "朝我看<em>．</em>潮我刊"
