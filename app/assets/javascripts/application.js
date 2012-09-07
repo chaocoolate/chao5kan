@@ -16,4 +16,5 @@
 //= require page.controller
 //= require magazine.controller
 //= require app.control
+//= require app.widget
 //= require_tree .

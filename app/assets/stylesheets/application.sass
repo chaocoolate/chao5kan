@@ -1,6 +1,19 @@
-$color-primary: #FF0000
-$color-text:    #666666
+$color-primary:   #ff0000
+$color-secondary: #990000
+$color-text:      #666666
+$image-sprite:    image-url('img.sprite.png') no-repeat
+
+@mixin background-gradient($start-position, $start-color, $end-color)
+  +background-image(linear-gradient($start-position, $start-color, $end-color))
+  filter:     progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#{$start-color}', endColorstr='#{$end-color}')
+  -ms-filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#{$start-color}', endColorstr='#{$end-color}')
+@mixin background-opacity($color, $opacity)
+  background: rgba($color, $opacity)
+  filter:     progid:DXImageTransform.Microsoft.Gradient(startColorstr='#{ie-hex-str(rgba($color, $opacity))}', endColorstr='#{ie-hex-str(rgba($color, $opacity))}')
+  -ms-filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr='#{ie-hex-str(rgba($color, $opacity))}', endColorstr='#{ie-hex-str(rgba($color, $opacity))}')
 
 @import "compass/css3"
 @import "base"
+@import "book"
 @import "intro"
+@import "magazine.view"

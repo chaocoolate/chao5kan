@@ -1,2 +1,23 @@
-<% test = "hehe" %>
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+  <session id="MagazineView">
+    <div class="gradient"></div>
+    <div class="logo" title="<%=I18n.translate 'app.name' %>"></div>
+    <ul selector class="menu" placeholder="menu" data-selected="magazine">
+      <li class="clickable" data-value="magazine" title="<%=I18n.translate 'app.menu.magazine' %>"><div class="total"></div></li>
+      <li class="clickable" data-value="bookclip" title="<%=I18n.translate 'app.menu.bookclip' %>"></li>
+      <li class="clickable" data-value="circle" title="<%=I18n.translate 'app.menu.circle' %>"></li>
+    </ul>
+    <div class="canvas">
+      <!-- ToDo: Cover -->
+      <!-- ToDo: Prev/Next Arrow -->
+      <!-- ToDo: Keyboard Control -->
+      <!-- ToDo: Zoom for Details -->
+      <!-- ToDo: Zoom Out for magazine choices -->
+      <book></book>
+    </div>
+  </session>
+
+<%= test = "" %>
+<!--
 Magazine View {{id}} <%=test %>
+-->

@@ -1,0 +1,48 @@
+angular.module('app.widget', []).
+
+  // ---------------------------------------------------------------------------
+  directive('slideshow', function($timeout) {
+    return {
+      scope: {},
+      restrict: 'E',
+      replace: true,
+      template: '<div class="pic"><img src="images/pic.reebok.insta-pump-fury.png" style="width:270px;height:270px"/></div>'
+    }
+  }).
+
+  // ---------------------------------------------------------------------------
+  directive('book', function($timeout) {
+    return {
+      scope: {},
+      restrict: 'E',
+      replace: true,
+      templateUrl: '<%= asset_path "html4/_book.html"  %>',
+      // controller: function() {
+      //   addPage = function(element) {
+      //     $(element).append($compile('<page></page>'));
+      //   }
+      //   http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
+      //   http://stackoverflow.com/questions/12046129/dynamically-creating-an-angular-view
+      // },
+    }
+  }).
+
+  // ---------------------------------------------------------------------------
+  directive('page', function() {
+    return {
+      // TODO: detect HTML4 / HTML5
+      scope: {},
+      restrict: 'E',
+      replace: true,
+      templateUrl: '<%= asset_path "html4/_book.page.html"  %>',
+      compile: function(element, attr) {
+        var $element = $(element);
+        $element.addClass("page");
+        $element.width($element.width() / 2);
+        $element.height($element.parent().height());
+        $element.css("float", "left");
+        $element.css("position", "absolute");
+        $element.css("overflow", "hidden");
+      }
+    }
+  })

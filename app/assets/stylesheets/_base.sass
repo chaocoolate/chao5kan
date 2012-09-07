@@ -3,12 +3,10 @@
   padding: 0
   border:  0
   +box-sizing(border-box)
-
 html
   height: 100%
   vertical-align: baseline
   outline: 0
-
 body
   height: 100%
   background: image-url('bg.png')
@@ -19,22 +17,64 @@ body
   line-height: 1.2
   .cn
     letter-spacing: 0.1em
-
 ol, ul
   list-style: none
-
 h1
   color: black
   font:
     size: 40px
-
 h5
   color: black
   font:
     size: 12px
-
 em
   font-style: normal
+button
+  display: inline-block
+  cursor: hand
+  cursor: pointer
+  padding: 6px 12px
+  border: 1px solid #cccccc
+  border:
+    bottom:
+      color: #aaaaaa
+  background:
+    color: #f2f2f2
+  color: #666666
+  font:
+    size: 11px
+    weight: bold
+  text
+    align: center
+  white-space: nowrap
+  +background-gradient(left top, #ffffff, #e0e0e0)
+  +border-radius(3px)
+  +text-shadow(0 -1px 1px #ffffff)
+  +box-shadow(inset 0 0 1px #ffffff)
+  &:hover
+    border:
+      color: #999999
+    +box-shadow(0 1px 2px rgba(0, 0, 0, 0.25), inset 0 0 3px #ffffff)
+  &.selected
+    border: 1px solid #aaaaaa
+    border:
+      top:
+        color: #999999
+      bottom:
+        color: #cccccc
+    background:
+      color: #dddddd
+    +background-gradient(left top, #e6e6e6, #dddddd)
+    +box-shadow(inset 0 1px 2px #aaaaaa)
+  &.radio
+    float: left
+    display: block
+    &.left
+      +border-radius(3px 0 0 3px)
+    &.right
+      border:
+        left: 0
+      +border-radius(0 3px 3px 0)
 
 // -----------------------------------------------------------------------------
 
@@ -43,16 +83,91 @@ em
 .clickable
   cursor: hand
   cursor: pointer
+.gradient
+  position: absolute
+  width: 100%
+  height: 100%
+  background: image-url('bg.gradient.png') repeat-x left bottom
 .logo
   position: absolute
   top: 30px
   left: 30px
   width: 60px
   height: 60px
-  background: image-url('img.sprite.png') no-repeat
-.canvas
+  background: $image-sprite
+.menu
   position: absolute
-  width: 100%
-  height: 100%
-  padding: 80px 40px 40px 140px
-  background: image-url('bg.gradient.png') repeat-x left bottom
+  top: 140px
+  left: 40px
+  li
+    width: 80px
+    height: 80px
+    margin:
+      bottom: 10px
+    background: $image-sprite
+    .total
+      position: absolute
+      width: 32px
+      height: 32px
+      margin:
+        top: -14px
+        left: -14px
+      background: $image-sprite 0 -160px
+  .magazine
+    background-position: -80px 0
+    &:hover
+      background-position: -80px -80px
+    &.on
+      background-position: -80px -80px
+  .bookclip
+    background-position: -160px 0
+    &:hover
+      background-position: -160px -80px
+    &.on
+      background-position: -160px -80px
+  .circle
+    background-position: -240px 0
+    &:hover
+      background-position: -240px -80px
+    &.on
+      background-position: -240px -80px
+.icon
+  width: 16px
+  height: 16px
+  background: $image-sprite
+  &.like
+    background-position: -40px -160px
+  &.hate
+    background-position: -60px -160px
+  &.subscribe
+    background-position: -80px -160px
+    &.selected
+      background-position: -100px -180px
+  &.block
+    background-position: -120px -160px
+  &.comment
+    background-position: -140px -180px
+button
+  label
+    cursor: hand
+    cursor: pointer
+  .icon
+    float: left
+  &.selected
+    .icon
+      &.like
+        background-position: -40px -180px
+      &.hate
+        background-position: -60px -180px
+  &:hover
+    .icon
+      &.like
+        background-position: -40px -180px
+      &.hate
+        background-position: -60px -180px
+      &.subscribe
+        background-position: -80px -180px
+        &.selected
+          background-position: -100px -180px
+      &.block
+        background-position: -120px -180px
