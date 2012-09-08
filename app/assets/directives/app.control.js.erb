@@ -7,19 +7,15 @@ angular.module('app.control', []).
         placeholder: '='
       },
       controller: function($scope) {
-        init = function(index, element) {
-          update(element);
+
+        // Public
+        $scope.init = function(index, element) {
+          init(element);
           $(element).on('click', select);
         }
-        select = function(evt) {
-          $(this).siblings().removeClass('selected');
-          $(this).addClass('selected');
-          $scope.placeholder = $(this).data('value');
-          // NOTE: Angular Bug
-          //   Without $timeout, watch function may wait to fire & not trigger immediately causing data-binding update problem
-          $timeout($scope.$apply());
-        }
-        update = function(element) {
+
+        // Private
+        var init = function(element) {
           var $element = $(element);
           var value = $element.data('value');
           $element.addClass(value.replace('.',' '));
@@ -27,12 +23,24 @@ angular.module('app.control', []).
             $element.addClass('selected');
           }
         }
+        var select = function(evt) {
+          $(this).siblings().removeClass('selected');
+          $(this).addClass('selected');
+          $scope.placeholder = $(this).data('value');
+          update();
+        }
+        var update = function() {
+          // NOTE: Angular Bug
+          //   Without $timeout, watch function may wait to fire & not trigger immediately causing data-binding update problem
+          $timeout(function() { if($scope) { $scope.$apply() }});
+        }
+
       },
       link: function(scope, element, attrs) {
         if(attrs.selected) {
           scope.placeholder = attrs.selected; 
         }
-        $(element).children().each(init);
+        $(element).children().each(scope.init);
       }
     }
  })
