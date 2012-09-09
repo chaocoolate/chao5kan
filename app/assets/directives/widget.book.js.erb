@@ -1,0 +1,15 @@
+app.widget.directive('book', function($timeout) {
+  return {
+    scope: {},
+    restrict: 'E',
+    replace: true,
+    templateUrl: '<%= asset_path "html4/_book.html"  %>',
+    // controller: function() {
+    //   addPage = function(element) {
+    //     $(element).append($compile('<page></page>'));
+    //   }
+    //   http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
+    //   http://stackoverflow.com/questions/12046129/dynamically-creating-an-angular-view
+    // },
+  }
+});

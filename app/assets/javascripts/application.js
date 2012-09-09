@@ -12,9 +12,21 @@
 //
 //= require jquery-1.8.0.min
 //= require angular-1.0.1.min
+//= require angular-resource.min
+//= require chao5kan
 //= require routes
+
+//-- Controllers ---------------------------------------------------------------
 //= require page.controller
 //= require magazine.controller
-//= require app.control
-//= require app.widget
+
+//-- Directives ----------------------------------------------------------------
+//= require control.selector
+//= require widget.book
+//= require widget.book.page
+//= require widget.slideshow
+
+//-- Models --------------------------------------------------------------------
+//= require article
+
 //= require_tree .

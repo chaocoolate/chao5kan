@@ -1,0 +1,18 @@
+app.widget.directive('page', function() {
+  return {
+    // TODO: detect HTML4 / HTML5
+    scope: {},
+    restrict: 'E',
+    replace: true,
+    templateUrl: '<%= asset_path "html4/_book.page.html"  %>',
+    compile: function(element, attr) {
+      var $element = $(element);
+      $element.addClass("page");
+      $element.width($element.width() / 2);
+      $element.height($element.parent().height());
+      $element.css("float", "left");
+      $element.css("position", "absolute");
+      $element.css("overflow", "hidden");
+    }
+  }
+});
