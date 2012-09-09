@@ -8,17 +8,17 @@ cn:
       circle:    "我的圈子"
   persona:
     mr:
-      trendy: "时尚男士"
+      trendy:       "时尚男士"
       professional: "事业男士"
     ms:
-      trendy: "时尚女士"
+      trendy:       "时尚女士"
       professional: "事业女士"
-    me: "我自已"
+    me:             "我自已"
   magazine:
     article:
       bookclip:  "收藏 / 分享"
-      like:      "赞"
-      hate:      "弹"
+      thumbUp:   "赞"
+      thumbDown: "弹"
       subscribe: "订阅"
       block:     "屏蔽相关信息"
       comment:   "评论"

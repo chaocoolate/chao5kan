@@ -1,45 +1,18 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
-<%
-  data = {
-    time: "3天前",
-    title: "atmos x Reebok INSTA PUMP FURY 雪豹 別注鞋款",
-    summary: "Reebok的经典鞋款系列INSTA PUMP FURY在今个夏季动作多多，先后与多个品牌联手擦出别样新火花。最新联手atmos推出白豹别注鞋款",
-    about: {
-      type: "product",
-      product: "Insta Pump Fury"
-    },    
-    photos: [
-    ],
-    brands: [
-      { name:"Reebok", img:"images/ico.brand.reebok.png", selected:true },
-      { name:"atmos",  img:"images/ico.brand.atmos.png" }
-    ],
-    say: {
-      like: true
-    },
-    stat: {
-      like: 627,
-      hate: 3,
-      comment: 15
-    }
-  }
-%>
 <div>
-  <h1><%= data[:title] %></h1>
-  <div class="time"><%= data[:time] %></div>
+  <h1>{{data.title}}</h1>
+  <div class="time">{{data.lastUpdated}}</div>
   <div class="about">
-    <label><%=I18n.translate 'magazine.article.product' %></label>
-    <h5><%= data[:about][:product] %></h5>
-    <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe"></div></button>  
-    <button title="<%=I18n.translate 'magazine.article.block' %>"><div class="icon block"></div></button>
+    <label>{{data.about.title}}</label>
+    <h5>{{data.about.name}}</h5>
+    <button title="<%=I18n.translate 'magazine.article.subscribe' %>" ng:click="subscribe('product')"><div class="icon subscribe"></div></button>  
+    <button title="<%=I18n.translate 'magazine.article.block' %>" ng:click="block()"><div class="icon block"></div></button>
   </div>
-  <ul class="brand">
-    <% data[:brands].each do |brand| %>
+  <ul class="brand" ng-repeat="brand in data.brands">
     <li>
-      <img src="<%=brand[:img]%>" title="<%=brand[:name]%>" />
-      <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe<%= isSelected brand[:selected] %>"></div></button>
+      <img ng-src="{{brand.icon}}" title="{{brand.name}}" />
+      <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe {{isSelected(brand.isSubscribed)}}" ng:click="subscribe('brand')"></div></button>
     </li>
-    <% end %>
   </ul>
   <div class="ribbon clickable">
     <div class="bg top"></div>
@@ -47,22 +20,20 @@
     <div class="instruction"><%=I18n.translate 'magazine.article.bookclip' %></div>
   </div>
   <div class="stat">
-    <button class="radio left<%= isSelected data[:say][:like] %>" title="<%=I18n.translate 'magazine.article.like' %>">
-      <div class="icon like"></div>
-      <label><%=data[:stat][:like]%></label>
+    <button class="radio left {{isSelected(data.isThumbUp)}}" title="<%=I18n.translate 'magazine.article.thumbUp' %>" ng-click="thumbUp()">
+      <div class="icon thumbUp"></div>
+      <label>{{data.thumbUp}}</label>
     </button>
-    <button class="radio right<%= isSelected data[:say][:hate] %>" title="<%=I18n.translate 'magazine.article.hate' %>">
-      <div class="icon hate"></div>
-      <label><%=data[:stat][:hate]%></label>
+    <button class="radio right {{isSelected(data.isThumbDown)}}" title="<%=I18n.translate 'magazine.article.thumbDown' %>" ng-click="thumbDown()">
+      <div class="icon thumbDown"></div>
+      <label>{{data.thumbDown}}</label>
     </button>
-    <div class="icon comment" title="<%=I18n.translate 'magazine.article.comment' %>"><%=data[:stat][:comment]%></div>
+    <div class="icon comment" title="<%=I18n.translate 'magazine.article.comment' %>">{{data.totalComments}}</div>
   </div>
-  <slideshow>
-    <% data[:photos].each do |photo| %>
-    <img src="<%=photo[:image]%>" title="<%=photo[:caption]%>"/>
-    <% end %>
+  <slideshow ng-repeat="photo in data.photos">
+    <img ng-src="{{photo.url}}" title="{{photo.caption}}"/>
   </slideshow>
-  <div class="summary clickable">
-    <%= data[:summary] %>...
+  <div class="summary clickable" ng:click="view()">
+    {{data.summary}}...
   </div>
 </div>

@@ -1,14 +1,50 @@
 var Magazine = {
   view: {
     controller: function($scope, $location, $routeParams, Article) {
-//      $scope.id = $routeParams.id
-      // $scope.data = Article.list({id:1506, isForward:true, count:10})
-      // Article.show({id:23})
-      // Article.destroy({id:23})
-      // $scope.data = $resource('app/models/:model', {model:'default.json'}).get()
-      // $scope.$watch('data', function() { 
-      //   scope.data.$save();
-      // });
+      // TODO: widget scope
+      // TODO: expand tooltips
+      // TODO: pop article
+      // TODO: pop when clicking subscribe & block on about section
+      // TODO: pop when clicking share to SNS
+      var request = {
+        data: {
+          locale:     'zhCN',
+          magazineId: $routeParams.id, 
+          articleId:  10,
+          isForward:  true,
+          count:      10
+        },
+        success: function(data) {
+          data = data[0]
+          $scope.data = data;
+          $scope.data.about.name = request.getName(data);
+        },
+        getName: function(data) {
+          switch(data.about.type) {
+            case "product": return data.product;
+          }
+        }
+      };
+      Article.list(request.data, request.success, request.error);
+      $scope.isSelected = function(flag) {
+        return flag ? " selected" : "";
+      };
+      $scope.view = function() {
+      };
+      $scope.subscribe = function(type) {
+      };
+      $scope.block = function() {
+      };
+      $scope.thumbUp = function() {
+//      Article.thumbUp($scope.data.id)        
+      };
+      $scope.thumbDown = function() {
+//      Article.thumbDown($scope.data.id)        
+      };
+      $scope.bookmark = function() {
+      };
+      $scope.share = function() {
+      };
     }
   }
 }

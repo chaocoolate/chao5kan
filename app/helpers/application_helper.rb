@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def isSelected flag
-    return flag ? ' selected' : ''
-  end
-
   def description_to_html ref
     out = I18n.translate ref
     if out.kind_of? Array
