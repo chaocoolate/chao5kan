@@ -27,6 +27,7 @@
 //= require widget.slideshow
 
 //-- Models --------------------------------------------------------------------
+//= require REST
 //= require article
 
 //= require_tree .
