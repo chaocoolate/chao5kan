@@ -1,43 +1,41 @@
-app.control.directive('selector', function($timeout) {
+app.control.directive('selector', function() {
+  var DOM = {
+    init: function(selector, changSelectValue) {
+      selector.children().each(function() {
+        var $item = $(this);
+        $item.addClass($item.data('value'));
+        $item.on('click', function() {
+          changSelectValue($(this).data('value'));
+        });
+      });
+    },
+    select: function(selector, selectValue) {
+      selector.children('.selected').removeClass('selected');
+      selector.children('[data-value="' + selectValue + '"]').addClass('selected');
+    }
+  }
+
   return {
     scope: {
       placeholder: '='
     },
     controller: function($scope) {
-
-      // Public
-      $scope.init = function(index, element) {
-        init(element);
-        $(element).on('click', select);
+      $scope.select = function(value) {
+        $scope.placeholder = value;
+        $scope.$apply();
       }
-
-      // Private
-      var init = function(element) {
-        var $element = $(element);
-        var value = $element.data('value');
-        $element.addClass(value.replace('.',' '));
-        if(value == $scope.placeholder) {
-          $element.addClass('selected');
-        }
-      }
-      var select = function(evt) {
-        $(this).siblings().removeClass('selected');
-        $(this).addClass('selected');
-        $scope.placeholder = $(this).data('value');
-        update();
-      }
-      var update = function() {
-        // NOTE: Angular Bug
-        //   Without $timeout, watch function may wait to fire & not trigger immediately causing data-binding update problem
-        $timeout(function() { if($scope) { $scope.$apply() }});
-      }
-
     },
     link: function(scope, element, attrs) {
-      if(attrs.selected) {
-        scope.placeholder = attrs.selected; 
+      var selectValue = attrs.selected;
+      if (selectValue) {
+        scope.placeholder = selectValue;
       }
-      $(element).children().each(scope.init);
+
+      DOM.init(element, scope.select);
+
+      scope.$watch('placeholder', function(value) {
+        DOM.select(element, value);
+      });
     }
   }
 })

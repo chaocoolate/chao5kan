@@ -1,9 +1,9 @@
 var Page = {
   intro: {
     controller: function($scope, $location) {
-      $scope.persona = "ms.trendy";
+      $scope.persona = 'ms_trendy';
       $scope.view = function() {
-        $location.path("/magazine/"+this.persona);
+        $location.path("/magazine/" + $scope.persona);
       }
     }
   }
