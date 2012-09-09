@@ -1,0 +1,48 @@
+app.model.factory('Article', function($resource) {
+  // var format = "json"
+  // return {
+  //   list: function(data, succeed, error) {
+  //     $http.get('articles.json', succeed, error)
+  //   },
+  //   show: function(id, succeed, error) {
+  //     $http.get("articles/"+id, succeed, error)
+  //   }
+  // }
+
+
+  return $resource('articles/:action.:format', { 
+//    id : '@id',
+    format : 'json'
+  }, {
+    list: { params: { action:'@id' },  method:'GET', isArray:true },  //=> article#index
+    view: { params: { url:'articles/:id' }, method:'GET', isArray:false }  //=> article#view
+  });
+});
+
+
+
+
+
+// 1. '/' ===>%2F
+// 2. @id ===> ?id=undefined
+// 3. how pass data object
+
+// angular.service('Magazine', function($resource) {
+//   return $resource('/:url.:format', { 
+//     id: '@id',
+//     format: 'json'
+//   }, {
+//     'list':    { url:'magazines',          method:'GET',    isArray:true },  //=> magazine#index
+//     'new':     { url:'magazines/new',      method:'GET',    isArray:false }, //=> magazine#new
+//     'show':    { url:'magazines/:id',      method:'GET',    isArray:false }, //=> magazine#show
+//     'edit':    { url:'magazines/:id/edit', method:'GET',    isArray:false }, //=> magazine#edit
+//     'create':  { url:'magazines',          method:'POST',   isArray:false }, //=> magazine#create
+//     'update':  { url:'magazines/:id',      method:'PUT',    isArray:false }, //=> magazine#update
+//     'destroy': { url:'magazines/:id',      method:'DELETE', isArray:false }  //=> magazine#destroy
+//   });
+// });
+
+
+
+// http://rise-to-power.googlecode.com/hg/doc/docs-0.9.19/tutorial/step_11.html
+// http://docs.angularjs.org/api/ngResource.$resource
