@@ -15,6 +15,7 @@
 //= require angular-resource.min
 //= require chao5kan
 //= require routes
+//= require REST
 
 //-- Controllers ---------------------------------------------------------------
 //= require page.controller
@@ -27,7 +28,6 @@
 //= require widget.slideshow
 
 //-- Models --------------------------------------------------------------------
-//= require REST
 //= require article
 
 //= require_tree .

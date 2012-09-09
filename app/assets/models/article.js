@@ -1,5 +1,5 @@
-app.model.factory('Article', function($resource, Restful) {
-  return Restful({
+app.model.factory('Article', function($resource, REST) {
+  return REST({
     format: 'json',
     routes: {
       'list': { url:'articles',     method:'GET' },
