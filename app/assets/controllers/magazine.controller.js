@@ -21,14 +21,7 @@ var Magazine = {
             count:      10
           },
           success: function(data) {
-            data = data[0]
             $scope.data = data;
-            $scope.data.about.name = request.getName(data);
-          },
-          getName: function(data) {
-            switch(data.about.type) {
-              case "product": return data.product;
-            }
           }
         };
         Article.list(request.data, request.success, request.error);

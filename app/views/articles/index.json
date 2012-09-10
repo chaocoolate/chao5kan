@@ -4,7 +4,7 @@
     "title":   "atmos x Reebok INSTA PUMP FURY 雪豹 別注鞋款",
     "summary": "Reebok的经典鞋款系列INSTA PUMP FURY在今个夏季动作多多，先后与多个品牌联手擦出别样新火花。最新联手atmos推出白豹别注鞋款",
     "about": {
-      "id":1, 
+      "id": 1, 
       "type": "product",
       "title": "<%=t 'magazine.article.product'%>" 
     },
@@ -16,7 +16,7 @@
     "product": "Insta Pump Fury",
     "varations": [],
     "photos": [
-      { "url": null, "caption": null }
+      { "url": "pic.reebok.insta-pump-fury.png", "caption": null }
     ],
     "updateAt":      2342355,
     "lastUpdate":    "2天前",
@@ -25,9 +25,33 @@
     "isThumbUp":     true,
     "thumbDown":     27,
     "isThumbDown":   false,
-    "isBookmarked":  false
+    "isBookmarked":  true
   },
   {
-    "id": 2
+    "id": 11,
+    "title":   "美式混搭风SASQUATCH fabrix. 2012秋冬男装新款",
+    "summary": "日本潮流品牌 SASQUATCH fabrix. 为庆祝即将到来的10周年纪念，在公布了2012年秋冬男装新款后旋即发布lookbook",
+    "about": {
+      "id": 2,
+      "type": "serie",
+      "title": "<%=t 'magazine.article.serie'%>" 
+    },
+    "brands": [
+      { "id": 3, "name": "SASQUATCHfabrix.", "icon":"images/ico.brand.SASQUATCHfabrix.png", "isSubscribed": false }
+    ],
+    "serie": "SASQUATCH fabrix. 2012秋冬男装",
+    "product": null,
+    "varations": [],
+    "photos": [
+      { "url": "images/pic.SASQUATCHfabrix.png", "caption": null }
+    ],
+    "updateAt":      2342355,
+    "lastUpdate":    "3小时前",
+    "totalComments": 6,
+    "thumbUp":       81,
+    "isThumbUp":     false,
+    "thumbDown":     5,
+    "isThumbDown":   false,
+    "isBookmarked":  false
   }
 ]

@@ -1,15 +1,42 @@
-app.widget.directive('book', function($timeout) {
+app.widget.directive('book', function($timeout, $compile) {
+  var DOM = {
+    addPage: function(scope, book) {
+      var html;
+      var $book = $(book);
+      var className = [];
+      var totalPage = $book.children().size() - 1;
+      if(totalPage == 1) {
+        className.push('hard');
+      }
+      className.push(totalPage%2 ? 'even' : 'odd');
+      className.push('p' + (totalPage + 1));
+      className = className.join(' ');
+      html = '<page class="'+className+'" placeholder="data['+(totalPage - 1)+']"></page>';
+      $book.children().last().before($compile(html)(scope));
+    }
+  };
   return {
-//    scope: {},
     restrict: 'E',
     replace: true,
     templateUrl: '<%= asset_path "html4/_book.html"  %>',
-    // controller: function() {
-    //   addPage = function(element) {
-    //     $(element).append($compile('<page></page>'));
-    //   }
-    //   http://stackoverflow.com/questions/11771513/angularjs-jquery-how-to-get-dynamic-content-working-in-angularjs
-    //   http://stackoverflow.com/questions/12046129/dynamically-creating-an-angular-view
-    // },
+    scope: {
+      data: '=placeholder'
+    },
+    link: function(scope, element, attrs) {
+      var getName = function(data) {
+        switch(data.about.type) {
+          case "serie":   return data.serie;
+          case "product": return data.product;
+        }
+      }
+      scope.$watch('data', function(data) {
+        if(data) {
+          for(var i=0; i<data.length; i++) {
+            scope.data[i].about.name = getName(data[i]);
+            DOM.addPage(scope, element)
+          }
+        }
+      })
+    }
   }
 });

@@ -1,10 +1,12 @@
 app.widget.directive('page', function() {
   return {
     // TODO: detect HTML4 / HTML5
-//    scope: {},
     restrict: 'E',
     replace: true,
     templateUrl: '<%= asset_path "html4/_book.page.html"  %>',
+    scope: {
+      data: '=placeholder'
+    },
     compile: function(element, attr) {
       var $element = $(element);
       $element.addClass("page");

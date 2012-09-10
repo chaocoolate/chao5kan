@@ -22,6 +22,7 @@ cn:
       subscribe: "订阅"
       block:     "屏蔽相关信息"
       comment:   "评论"
+      serie:     "系列"
       product:   "商品"
   page:
     intro:
