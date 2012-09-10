@@ -1,18 +1,19 @@
 app.widget.directive('book', function($compile) {
   var DOM = {
     addPage: function(scope, book) {
-      var html;
       var $book = $(book);
+      var pageNumber = $book.children().size() - 1;
+      var html = '<page class="' + DOM.getClass(pageNumber) + '" placeholder="data[' + (pageNumber - 1) + ']"></page>';
+      $book.children().last().before($compile(html)(scope));
+    },
+    getClass: function(pageNumber) {
       var className = [];
-      var totalPage = $book.children().size() - 1;
-      if(totalPage == 1) {
+      if(pageNumber == 2) {
         className.push('hard');
       }
-      className.push(totalPage%2 ? 'even' : 'odd');
-      className.push('p' + (totalPage + 1));
-      className = className.join(' ');
-      html = '<page class="'+className+'" placeholder="data['+(totalPage - 1)+']"></page>';
-      $book.children().last().before($compile(html)(scope));
+      className.push(pageNumber % 2 ? 'even' : 'odd');
+      className.push('p' + pageNumber);
+      return className.join(' ');
     }
   };
   return {
