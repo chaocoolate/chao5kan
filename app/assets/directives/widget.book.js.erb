@@ -26,8 +26,8 @@ app.widget.directive('book', function($compile) {
     link: function(scope, element, attrs) {
       var getName = function(data) {
         switch(data.about.type) {
-          case "serie":   return data.serie;
-          case "product": return data.product;
+          case "serie":   return data.serie.name;
+          case "product": return data.product.name;
         }
       }
       scope.$watch('data', function(data) {
