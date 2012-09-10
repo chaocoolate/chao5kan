@@ -11,7 +11,7 @@
   <ul class="brand" ng-repeat="brand in data.brands">
     <li>
       <img ng-src="{{brand.icon}}" title="{{brand.name}}" />
-      <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe {{isSelected(brand.isSubscribed)}}" ng:click="subscribe('brand')"></div></button>
+      <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe" ng-class="{selected: brand.isSubscribed}" ng:click="subscribe('brand')"></div></button>
     </li>
   </ul>
   <div class="ribbon clickable">
@@ -20,11 +20,11 @@
     <div class="instruction"><%=I18n.translate 'magazine.article.bookclip' %></div>
   </div>
   <div class="stat">
-    <button class="radio left {{isSelected(data.isThumbUp)}}" title="<%=I18n.translate 'magazine.article.thumbUp' %>" ng-click="thumbUp()">
+    <button class="radio left" ng-class="{selected: data.isThumbUp}" title="<%=I18n.translate 'magazine.article.thumbUp' %>" ng-click="thumbUp()">
       <div class="icon thumbUp"></div>
       <label>{{data.thumbUp}}</label>
     </button>
-    <button class="radio right {{isSelected(data.isThumbDown)}}" title="<%=I18n.translate 'magazine.article.thumbDown' %>" ng-click="thumbDown()">
+    <button class="radio right" ng-class="{selected: data.isThumbDown}" title="<%=I18n.translate 'magazine.article.thumbDown' %>" ng-click="thumbDown()">
       <div class="icon thumbDown"></div>
       <label>{{data.thumbDown}}</label>
     </button>

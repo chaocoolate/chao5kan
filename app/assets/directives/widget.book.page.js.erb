@@ -28,18 +28,15 @@ app.widget.directive('page', function() {
       };
       $scope.share = function() {
       };
-      $scope.isSelected = function(flag) {
-        return flag ? 'selected' : '';
-      };
     },
     compile: function(element, attrs) {
       var $element = $(element);
-      $element.addClass("page");
+      $element.addClass('page');
       $element.width($element.width() / 2);
       $element.height($element.parent().height());
-      $element.css("float", "left");
-      $element.css("position", "absolute");
-      $element.css("overflow", "hidden");
+      $element.css('float', 'left');
+      $element.css('position', 'absolute');
+      $element.css('overflow', 'hidden');
     }
   }
 });
