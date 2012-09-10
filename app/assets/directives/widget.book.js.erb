@@ -26,14 +26,14 @@ app.widget.directive('book', function($compile) {
     link: function(scope, element, attrs) {
       var getName = function(data) {
         switch(data.about.type) {
-          case "serie":   return data.serie.name;
-          case "product": return data.product.name;
+          case "serie":   return data.serie;
+          case "product": return data.product;
         }
       }
       scope.$watch('data', function(data) {
         if(data) {
           for(var i=0; i<data.length; i++) {
-            scope.data[i].about.name = getName(data[i]);
+            scope.data[i].about = getName(data[i]);
             DOM.addPage(scope, element)
           }
         }
