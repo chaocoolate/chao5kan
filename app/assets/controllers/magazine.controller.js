@@ -1,8 +1,6 @@
 var Magazine = {
   view: {
     controller: function($scope, $location, $routeParams, Article) {
-      $scope.view = function() {
-      };
       $scope.more = function() {
         var request = {
           data: {

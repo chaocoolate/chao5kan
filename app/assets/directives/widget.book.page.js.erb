@@ -8,16 +8,20 @@ app.widget.directive('page', function() {
       data: '=placeholder'
     },
     controller: function($scope) {
-      $scope.isSelected = function(flag) {
-        return flag ? " selected" : "";
+      $scope.view = function() {
       };
       $scope.thumbUp = function() {
+        $scope.data.isThumbUp = !$scope.data.isThumbUp;
+        $scope.data.isThumbDown = false;
 //      Article.thumbUp($scope.data.id)        
       };
       $scope.thumbDown = function() {
+        $scope.data.isThumbUp = false;
+        $scope.data.isThumbDown = !$scope.data.isThumbDown;
 //      Article.thumbDown($scope.data.id)        
       };
       $scope.subscribe = function(type) {
+        if(type == "brand")
       };
       $scope.block = function() {
       };
@@ -25,8 +29,11 @@ app.widget.directive('page', function() {
       };
       $scope.share = function() {
       };
+      $scope.isSelected = function(flag) {
+        return flag ? 'selected' : '';
+      };
     },
-    compile: function(element, attr) {
+    compile: function(element, attrs) {
       var $element = $(element);
       $element.addClass("page");
       $element.width($element.width() / 2);
