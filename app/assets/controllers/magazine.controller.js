@@ -6,30 +6,32 @@ var Magazine = {
       // TODO: pop article
       // TODO: pop when clicking subscribe & block on about section
       // TODO: pop when clicking share to SNS
-      var request = {
-        data: {
-          locale:     'zhCN',
-          magazineId: $routeParams.id, 
-          articleId:  10,
-          isForward:  true,
-          count:      10
-        },
-        success: function(data) {
-          data = data[0]
-          $scope.data = data;
-          $scope.data.about.name = request.getName(data);
-        },
-        getName: function(data) {
-          switch(data.about.type) {
-            case "product": return data.product;
-          }
-        }
-      };
-      Article.list(request.data, request.success, request.error);
       $scope.isSelected = function(flag) {
         return flag ? " selected" : "";
       };
       $scope.view = function() {
+      };
+      $scope.more = function() {
+        var request = {
+          data: {
+            locale:     'zhCN',
+            magazineId: $routeParams.id, 
+            articleId:  10,
+            isForward:  true,
+            count:      10
+          },
+          success: function(data) {
+            data = data[0]
+            $scope.data = data;
+            $scope.data.about.name = request.getName(data);
+          },
+          getName: function(data) {
+            switch(data.about.type) {
+              case "product": return data.product;
+            }
+          }
+        };
+        Article.list(request.data, request.success, request.error);
       };
       $scope.subscribe = function(type) {
       };
@@ -45,6 +47,7 @@ var Magazine = {
       };
       $scope.share = function() {
       };
+      $scope.more();
     }
   }
 }
