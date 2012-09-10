@@ -7,6 +7,25 @@ app.widget.directive('page', function() {
     scope: {
       data: '=placeholder'
     },
+    controller: function($scope) {
+      $scope.isSelected = function(flag) {
+        return flag ? " selected" : "";
+      };
+      $scope.thumbUp = function() {
+//      Article.thumbUp($scope.data.id)        
+      };
+      $scope.thumbDown = function() {
+//      Article.thumbDown($scope.data.id)        
+      };
+      $scope.subscribe = function(type) {
+      };
+      $scope.block = function() {
+      };
+      $scope.bookmark = function() {
+      };
+      $scope.share = function() {
+      };
+    },
     compile: function(element, attr) {
       var $element = $(element);
       $element.addClass("page");
