@@ -6,7 +6,7 @@ describe('directives', function() {
   beforeEach(module('chao5kan.directives'));
 
   describe('navigate-to', function() {
-    it('should navigate to /URL after body fadeout', function() {
+    xit('should navigate to /URL after body fadeout', function() {
       inject(function($compile, $rootScope, $location) {
         var element = $compile('<div data-navigate-to="/URL"></div>')($rootScope);
         $(element).click();
@@ -24,7 +24,7 @@ describe('directives', function() {
   });
 
   describe('turn-options', function() {
-    it('should initialize turn js effect with options after element is visible', function() {
+    xit('should initialize turn js effect with options after element is visible', function() {
       inject(function($compile, $rootScope, $location) {
         jasmine.Clock.useMock();
         spyOn($.fn, 'turn');

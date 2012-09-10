@@ -5,5 +5,5 @@ app.model.factory('Article', function($resource, REST) {
       'list': { url:'articles',     method:'GET', isArray:true },
       'show': { url:'articles/:id', method:'GET', isArray:false }
     }
-  })
+  });
 });

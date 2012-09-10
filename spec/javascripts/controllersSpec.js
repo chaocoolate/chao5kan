@@ -8,7 +8,7 @@ describe('HomeController', function(){
     var homeController = $controller(HomeController, {$scope: scope})
   }));
 
-  it('should ....', function() {
+  xit('should ....', function() {
     //spec body
   });
 });
@@ -21,7 +21,7 @@ describe('MagazineViewController', function(){
     var magazineViewController = $controller(MagazineViewController, {$scope: scope})
   }));
 
-  it('should ....', function() {
+  xit('should ....', function() {
     //spec body
   });
 });
