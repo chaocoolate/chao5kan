@@ -1,12 +1,12 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
-  <session id="MagazineView" class="gradient">
+  <section id="MagazineView" class="gradient">
     <div class="logo" title="<%=I18n.translate 'app.name' %>"></div>
     <ul selector class="menu" placeholder="menu" data-selected="magazine">
       <li class="clickable" data-value="magazine" title="<%=I18n.translate 'app.menu.magazine' %>"><div class="total"></div></li>
       <li class="clickable" data-value="bookclip" title="<%=I18n.translate 'app.menu.bookclip' %>"></li>
       <li class="clickable" data-value="circle" title="<%=I18n.translate 'app.menu.circle' %>"></li>
     </ul>
-    <session class="canvas">
+    <section class="canvas">
       <book placeholder="data"></book>
-    </session>
-  </session>
+    </section>
+  </section>

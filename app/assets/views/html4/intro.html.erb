@@ -1,5 +1,5 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
-  <session id="Intro" class="gradient">
+  <section id="Intro" class="gradient">
       <div class="pic {{persona}}">
         <div class="clickable" ng:click="view()">
           <%=I18n.translate 'page.intro.click_here' %>
@@ -18,4 +18,4 @@
       <li class="clickable" data-value="ms_professional" title="<%=I18n.translate 'persona.ms.professional' %>"></li>
       <li class="clickable" data-value="me" title="<%=I18n.translate 'persona.me' %>"></li>
     </ul> 
-  </session>
+  </section>
