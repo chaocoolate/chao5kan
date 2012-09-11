@@ -1,0 +1,17 @@
+<% environment.context_class.instance_eval { include ApplicationHelper } %>
+  <session id="MagazineNew">
+    <div class="gradient"></div>
+    <div class="logo" title="<%=I18n.translate 'app.name' %>"></div>
+    <ul selector class="menu" placeholder="menu" data-selected="magazine">
+      <li class="clickable" data-value="magazine" title="<%=I18n.translate 'app.menu.magazine' %>"><div class="total"></div></li>
+      <li class="clickable" data-value="bookclip" title="<%=I18n.translate 'app.menu.bookclip' %>"></li>
+      <li class="clickable" data-value="circle" title="<%=I18n.translate 'app.menu.circle' %>"></li>
+    </ul>
+    <div class="canvas" style="padding:300px">
+      <form name="form">
+        <label>Please choose a name for this magazine:</label>  {{magazine.name}}
+        <div style="padding:4px 0 20px 0"><input class="field" ng-model="magazine.name" value="haha" required/></div>
+        <button ng-submit="create()">Create</button>
+        <button ng-click="back()">Cancel</button>
+    </div>
+  </session>

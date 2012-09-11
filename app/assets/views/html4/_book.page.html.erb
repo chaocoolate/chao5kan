@@ -5,13 +5,13 @@
   <div class="about">
     <label>{{data.about.title}}</label>
     <h5>{{data.about.name}}</h5>
-    <button title="<%=I18n.translate 'magazine.article.subscribe' %>" ng:click="subscribe(data.about)"><div class="icon subscribe" ng-class="{selected: data.about.isSubscribed}"></div></button>  
+    <button title="<%=I18n.translate 'magazine.article.subscribe' %>" ng:click="subscribe(data.about, data.about.type)"><div class="icon subscribe" ng-class="{selected: data.about.isSubscribed}"></div></button>  
     <button title="<%=I18n.translate 'magazine.article.block' %>" ng:click="block()"><div class="icon block"></div></button>
   </div>
   <ul class="brand" ng-repeat="brand in data.brands">
     <li>
       <img ng-src="{{brand.icon}}" title="{{brand.name}}" />
-      <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe" ng-class="{selected: brand.isSubscribed}" ng:click="subscribe(brand)"></div></button>
+      <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe" ng-class="{selected: brand.isSubscribed}" ng:click="subscribe(brand, 'brand')"></div></button>
     </li>
   </ul>
   <div class="ribbon clickable">

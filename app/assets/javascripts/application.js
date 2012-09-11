@@ -29,5 +29,6 @@
 
 //-- Models --------------------------------------------------------------------
 //= require article
+//= require magazine
 
 //= require_tree .

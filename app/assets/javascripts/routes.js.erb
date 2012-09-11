@@ -1,5 +1,6 @@
 app.route.config(function($routeProvider) {
   $routeProvider.when('/intro',         { controller:Page.intro.controller,    templateUrl:'<%= asset_path 'html4/intro.html' %>'});
+  $routeProvider.when('/magazines/new', { controller:Magazine.new.controller,  templateUrl:'<%= asset_path 'html4/magazine.new.html' %>'});
   $routeProvider.when('/magazines/:id', { controller:Magazine.view.controller, templateUrl:'<%= asset_path 'html4/magazine.view.html' %>'});
   $routeProvider.otherwise(             { redirectTo:'/intro'});
 });

@@ -7,7 +7,7 @@ app.widget.directive('page', function() {
     scope: {
       data: '=placeholder'
     },
-    controller: function($scope) {
+    controller: function($scope, $location) {
       $scope.view = function() {
       };
       $scope.thumbUp = function() {
@@ -20,7 +20,8 @@ app.widget.directive('page', function() {
         $scope.data.isThumbDown = !$scope.data.isThumbDown;
 //      Article.thumbDown($scope.data.id)        
       };
-      $scope.subscribe = function(object) {
+      $scope.subscribe = function(object, type) {
+        $location.path('/magazines/new').search({ 'type': type, 'id': object.id });
       };
       $scope.block = function() {
       };

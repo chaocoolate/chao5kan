@@ -24,16 +24,16 @@ app.widget.directive('book', function($compile) {
       data: '=placeholder'
     },
     link: function(scope, element, attrs) {
-      var getName = function(data) {
+      var init = function(scopeData, data) {
         switch(data.about.type) {
-          case "serie":   return data.serie;
-          case "product": return data.product;
+          case "serie":   return $.extend(scopeData, { 'id': data.serie.id, 'name' : data.serie.name });
+          case "product": return $.extend(scopeData, { 'id': data.product.id, 'name' : data.product.name });
         }
       }
       scope.$watch('data', function(data) {
         if(data) {
           for(var i=0; i<data.length; i++) {
-            scope.data[i].about = getName(data[i]);
+            init(scope.data[i].about, data[i]);
             DOM.addPage(scope, element)
           }
         }

@@ -4,9 +4,9 @@
     "title":   "atmos x Reebok INSTA PUMP FURY 雪豹 別注鞋款",
     "summary": "Reebok的经典鞋款系列INSTA PUMP FURY在今个夏季动作多多，先后与多个品牌联手擦出别样新火花。最新联手atmos推出白豹别注鞋款",
     "about": {
-      "id": 1, 
-      "type": "product",
-      "title": "<%=t 'magazine.article.product'%>" 
+      "type":   "product",
+      "typeId": 1, 
+      "title":  "<%=t 'magazine.article.product'%>" 
     },
     "brands": [
       { "id": 1, "name": "Reebok", "icon":"images/ico.brand.reebok.png", "isSubscribed": true },
