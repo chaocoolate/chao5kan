@@ -7,11 +7,26 @@
       <li class="clickable" data-value="bookclip" title="<%=I18n.translate 'app.menu.bookclip' %>"></li>
       <li class="clickable" data-value="circle" title="<%=I18n.translate 'app.menu.circle' %>"></li>
     </ul>
-    <div class="canvas" style="padding:300px">
+    <div class="canvas">
+<!--       <div class="book">
+        <h3>奢侈品</h3>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+ -->
       <form name="form">
         <label>Please choose a name for this magazine:</label>  {{magazine.name}}
-        <div style="padding:4px 0 20px 0"><input class="field" ng-model="magazine.name" value="haha" required/></div>
-        <button ng-submit="create()">Create</button>
+        <div style="padding:4px 0 20px 0"><input class="field" ng-model="magazine.name" required/></div>
+        <button ng-click="create()">Create</button>
         <button ng-click="back()">Cancel</button>
     </div>
   </session>

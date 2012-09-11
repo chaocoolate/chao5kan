@@ -1,5 +1,10 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
 <div>
+  <div class="ribbon clickable">
+    <div class="bg top"></div>
+    <div class="bg bottom"></div>
+    <div class="instruction"><%=I18n.translate 'magazine.article.bookclip' %></div>
+  </div>
   <h1>{{data.title}}</h1>
   <div class="time">{{data.lastUpdated}}</div>
   <div class="about">
@@ -14,11 +19,9 @@
       <button title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe" ng-class="{selected: brand.isSubscribed}" ng:click="subscribe(brand, 'brand')"></div></button>
     </li>
   </ul>
-  <div class="ribbon clickable">
-    <div class="bg top"></div>
-    <div class="bg bottom"></div>
-    <div class="instruction"><%=I18n.translate 'magazine.article.bookclip' %></div>
-  </div>
+  <slideshow ng-repeat="photo in data.photos">
+    <img ng-src="{{photo.url}}" title="{{photo.caption}}"/>
+  </slideshow>
   <div class="stat">
     <button class="radio left" ng-class="{selected: data.isThumbUp}" title="<%=I18n.translate 'magazine.article.thumbUp' %>" ng-click="thumbUp()">
       <div class="icon thumbUp"></div>
@@ -30,9 +33,6 @@
     </button>
     <div class="icon comment" title="<%=I18n.translate 'magazine.article.comment' %>">{{data.totalComments}}</div>
   </div>
-  <slideshow ng-repeat="photo in data.photos">
-    <img ng-src="{{photo.url}}" title="{{photo.caption}}"/>
-  </slideshow>
   <div class="summary clickable" ng:click="view()">
     {{data.summary}}...
   </div>

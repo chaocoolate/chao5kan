@@ -4,3 +4,8 @@ app.route.config(function($routeProvider) {
   $routeProvider.when('/magazines/:id', { controller:Magazine.view.controller, templateUrl:'<%= asset_path 'html4/magazine.view.html' %>'});
   $routeProvider.otherwise(             { redirectTo:'/intro'});
 });
+
+// Support passing CSRF token to RoR on form submission
+app.route.config(function($httpProvider) {
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+});

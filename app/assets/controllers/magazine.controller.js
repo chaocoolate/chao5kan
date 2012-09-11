@@ -1,15 +1,21 @@
 var Magazine = {
   new: {
     controller: function($scope, $location, $routeParams, Magazine) {
+      $scope.user =  { id: 1 };
+      $scope.magazine = {
+        items: { 
+          type: $routeParams.type, 
+          id:   $routeParams.id
+        }
+      }
       $scope.back = function() {
         history.back();
       }
       $scope.create = function() {
         var request = {
           data: {
-            userId:   1,
-            name:     "運動",
-            brandIds: [ 2 ]
+            user:     $scope.user,
+            magazine: $scope.magazine
           },
           success: function(data) {
             $scope.back();
