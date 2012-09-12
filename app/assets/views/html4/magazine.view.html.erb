@@ -1,10 +1,10 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
   <section id="MagazineView" class="gradient">
-    <div class="logo" title="<%=I18n.translate 'app.name' %>"></div>
+    <div class="logo" title="<%=t 'app.name' %>"></div>
     <ul selector class="menu" placeholder="menu" data-selected="magazine">
-      <li class="clickable" data-value="magazine" title="<%=I18n.translate 'app.menu.magazine' %>"><div class="total"></div></li>
-      <li class="clickable" data-value="bookclip" title="<%=I18n.translate 'app.menu.bookclip' %>"></li>
-      <li class="clickable" data-value="circle" title="<%=I18n.translate 'app.menu.circle' %>"></li>
+      <li class="clickable" data-value="magazine" title="<%=t 'app.menu.magazine' %>"><div class="total"></div></li>
+      <li class="clickable" data-value="bookclip" title="<%=t 'app.menu.bookclip' %>"></li>
+      <li class="clickable" data-value="circle" title="<%=t 'app.menu.circle' %>"></li>
     </ul>
     <section class="canvas">
       <book placeholder="data"></book>

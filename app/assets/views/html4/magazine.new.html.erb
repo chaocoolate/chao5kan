@@ -1,10 +1,10 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
   <section id="MagazineNew" class="gradient">
-    <div class="logo" title="<%=I18n.translate 'app.name' %>"></div>
+    <div class="logo" title="<%=t 'app.name' %>"></div>
     <ul selector class="menu" placeholder="menu" data-selected="magazine">
-      <li class="clickable" data-value="magazine" title="<%=I18n.translate 'app.menu.magazine' %>"><div class="total"></div></li>
-      <li class="clickable" data-value="bookclip" title="<%=I18n.translate 'app.menu.bookclip' %>"></li>
-      <li class="clickable" data-value="circle" title="<%=I18n.translate 'app.menu.circle' %>"></li>
+      <li class="clickable" data-value="magazine" title="<%=t 'app.menu.magazine' %>"><div class="total"></div></li>
+      <li class="clickable" data-value="bookclip" title="<%=t 'app.menu.bookclip' %>"></li>
+      <li class="clickable" data-value="circle" title="<%=t 'app.menu.circle' %>"></li>
     </ul>
     <section class="canvas">
       <div class="magazines">
@@ -24,23 +24,23 @@
       </div>
       <div class="box">
         <div class="desc" ng-show="user.id">
-          <h1><%=I18n.translate 'page.magazine.new.heading' %></h1>
+          <h1><%=t 'page.magazine.new.heading' %></h1>
           <%= description_to_html "page.magazine.new.description" %>
         </div>
         <div class="form">
           <form name="form">
             <field>
-              <input class="field" ng-model="magazine.name" default="<%=I18n.translate 'label.magazine.new.name' %>" required />
+              <input class="field" ng-model="magazine.name" default="<%=t 'label.magazine.new.name' %>" required />
             </field>
             <fieldset>
               <ul>
-                <li class="first"><input class="field" ng-model="user.email" default="<%=I18n.translate 'label.email' %>" required/></li>
-                <li><input class="field" ng-model="user.password" default="<%=I18n.translate 'label.password' %>" required/></li>
-                <li class="last"><input class="field" ng-model="user.password_repeat" default="<%=I18n.translate 'label.password_repeat' %>" required/></li>
+                <li class="first"><input class="field" ng-model="user.email" default="<%=t 'label.email' %>" required/></li>
+                <li><input class="field" ng-model="user.password" default="<%=t 'label.password' %>" required/></li>
+                <li class="last"><input class="field" ng-model="user.password_repeat" default="<%=t 'label.password_repeat' %>" required/></li>
               </ul>
             </fieldset>
-            <button class="big" ng-click="create()"><%=I18n.translate 'button.magazine.new' %></button>
-            <button class="big" ng-click="back()"><%=I18n.translate 'button.back' %></button>
+            <button class="big" ng-click="create()"><%=t 'button.magazine.new' %></button>
+            <button class="big" ng-click="back()"><%=t 'button.back' %></button>
           </form>
         </div>
       </div>

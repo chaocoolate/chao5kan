@@ -2,20 +2,20 @@
   <section id="Intro" class="gradient">
       <div class="pic {{persona}}">
         <div class="clickable" ng-click="view()">
-          <%=I18n.translate 'page.intro.click_here' %>
+          <%=t 'page.intro.click_here' %>
         </div>
       </div>
     </div>
-    <div class="logo" title="<%=I18n.translate 'app.name' %>"></div>
+    <div class="logo" title="<%=t 'app.name' %>"></div>
     <div class="desc">
-      <h1><%=I18n.translate 'page.intro.heading' %></h1>
+      <h1><%=t 'page.intro.heading' %></h1>
       <%= description_to_html 'page.intro.description' %>
     </div>
     <ul selector class="persona" placeholder="persona">
-      <li class="clickable" data-value="mr_trendy" title="<%=I18n.translate 'persona.mr.trendy' %>"></li>
-      <li class="clickable" data-value="mr_professional" title="<%=I18n.translate 'persona.mr.professional' %>"></li>
-      <li class="clickable" data-value="ms_trendy" title="<%=I18n.translate 'persona.ms.trendy' %>"></li>
-      <li class="clickable" data-value="ms_professional" title="<%=I18n.translate 'persona.ms.professional' %>"></li>
-      <li class="clickable" data-value="me" title="<%=I18n.translate 'persona.me' %>"></li>
+      <li class="clickable" data-value="mr_trendy" title="<%=t 'persona.mr.trendy' %>"></li>
+      <li class="clickable" data-value="mr_professional" title="<%=t 'persona.mr.professional' %>"></li>
+      <li class="clickable" data-value="ms_trendy" title="<%=t 'persona.ms.trendy' %>"></li>
+      <li class="clickable" data-value="ms_professional" title="<%=t 'persona.ms.professional' %>"></li>
+      <li class="clickable" data-value="me" title="<%=t 'persona.me' %>"></li>
     </ul> 
   </section>
