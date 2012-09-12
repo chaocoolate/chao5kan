@@ -10,13 +10,13 @@
   <div class="about">
     <label>{{data.about.title}}</label>
     <h5>{{data.about.name}}</h5>
-    <button class="small" title="<%=I18n.translate 'magazine.article.subscribe' %>" ng:click="subscribe(data.about, data.about.type)"><div class="icon subscribe" ng-class="{selected: data.about.isSubscribed}"></div></button>  
-    <button class="small" title="<%=I18n.translate 'magazine.article.block' %>" ng:click="block()"><div class="icon block"></div></button>
+    <button class="small" title="<%=I18n.translate 'magazine.article.subscribe' %>" ng-click="subscribe(data.about, data.about.type)"><div class="icon subscribe" ng-class="{selected: data.about.isSubscribed}"></div></button>  
+    <button class="small" title="<%=I18n.translate 'magazine.article.block' %>" ng-click="block()"><div class="icon block"></div></button>
   </div>
   <ul class="brand" ng-repeat="brand in data.brands">
     <li>
       <img ng-src="{{brand.icon}}" title="{{brand.name}}" />
-      <button class="small" title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe" ng-class="{selected: brand.isSubscribed}" ng:click="subscribe(brand, 'brand')"></div></button>
+      <button class="small" title="<%=I18n.translate 'magazine.article.subscribe' %>"><div class="icon subscribe" ng-class="{selected: brand.isSubscribed}" ng-click="subscribe(brand, 'brand')"></div></button>
     </li>
   </ul>
   <slideshow ng-repeat="photo in data.photos">
@@ -33,7 +33,7 @@
     </button>
     <div class="icon comment" title="<%=I18n.translate 'magazine.article.comment' %>">{{data.totalComments}}</div>
   </div>
-  <div class="summary clickable" ng:click="view()">
+  <div class="summary clickable" ng-click="view()">
     {{data.summary}}...
   </div>
 </div>

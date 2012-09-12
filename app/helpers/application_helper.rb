@@ -4,7 +4,7 @@ module ApplicationHelper
     out = I18n.translate ref
     if out.kind_of? Array
       out.map! do |item|
-        item.kind_of?(Array) ? item.join('\n') : markdown_to_html(item)
+        markdown_to_html(item.kind_of?(Array) ? item.join('\n') : item)
       end
       return "<p>" + out.join('</p><p>') + '</p>'
     end

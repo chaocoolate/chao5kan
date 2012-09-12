@@ -1,7 +1,7 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
   <section id="Intro" class="gradient">
       <div class="pic {{persona}}">
-        <div class="clickable" ng:click="view()">
+        <div class="clickable" ng-click="view()">
           <%=I18n.translate 'page.intro.click_here' %>
         </div>
       </div>
