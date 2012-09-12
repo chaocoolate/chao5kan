@@ -23,6 +23,7 @@
 
 //-- Directives ----------------------------------------------------------------
 //= require control.selector
+//= require control.input
 //= require widget.book
 //= require widget.book.page
 //= require widget.slideshow

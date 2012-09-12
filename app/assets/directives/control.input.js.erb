@@ -1,0 +1,10 @@
+app.control.directive('input.default', function() {
+  return {
+    restrict: 'A',
+    template: '<div style="position:absolute"></div>',
+    scope: {},
+    link: function(scope, element, attrs) {
+      alert(attrs("default"))
+    }
+  }
+});
