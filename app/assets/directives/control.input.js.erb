@@ -1,10 +1,13 @@
-app.control.directive('input.default', function() {
+app.control.directive('default', function($compile) {
   return {
     restrict: 'A',
-    template: '<div style="position:absolute"></div>',
     scope: {},
-    link: function(scope, element, attrs) {
-      alert(attrs("default"))
+    compile: function(element, attrs) {
+      var $input = $(element);
+      var $label = $('<label>' + $(element).attr('default') + '</label>');
+      attrs.$set('ng-change', 'isEmpty()');
+      $input.css('position', 'absolute');
+      $input.after($label);
     }
   }
 });

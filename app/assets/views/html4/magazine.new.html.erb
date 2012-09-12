@@ -30,23 +30,13 @@
         <div class="form">
           <form name="form">
             <field>
-              <input class="field" ng-model="magazine.name" required/>
-              <label><%=I18n.translate 'label.magazine.new.name' %></label>
+              <input class="field" ng-model="magazine.name" default="<%=I18n.translate 'label.magazine.new.name' %>" required />
             </field>
             <fieldset>
               <ul>
-                <li class="first">
-                  <input class="field" ng-model="user.email" required/>
-                  <label><%=I18n.translate 'label.email' %></label>
-                </li>
-                <li>
-                  <input class="field" ng-model="user.password" required/>
-                  <label><%=I18n.translate 'label.password' %></label>
-                </li>
-                <li class="last">
-                  <input class="field" ng-model="user.password_repeat" required/>
-                  <label><%=I18n.translate 'label.password_repeat' %></label>
-                </li>
+                <li class="first"><input class="field" ng-model="user.email" default="<%=I18n.translate 'label.email' %>" required/></li>
+                <li><input class="field" ng-model="user.password" default="<%=I18n.translate 'label.password' %>" required/></li>
+                <li class="last"><input class="field" ng-model="user.password_repeat" default="<%=I18n.translate 'label.password_repeat' %>" required/></li>
               </ul>
             </fieldset>
             <button class="big" ng-click="create()"><%=I18n.translate 'button.magazine.new' %></button>
