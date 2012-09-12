@@ -7,26 +7,52 @@
       <li class="clickable" data-value="circle" title="<%=I18n.translate 'app.menu.circle' %>"></li>
     </ul>
     <section class="canvas">
-<!--       <div class="book">
-        <h3>奢侈品</h3>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
+      <div class="magazines">
+        <div class="book">
+          <div class="cover">
+            <h3>{{magazine.name}}</h3>
+            <ul>
+              <li ng-repeat="item in magazine.pics">
+                <img ng-show="item" ng-src="{{item.url}}" title="{{item.name}}" />
+              </li>
+            </ul>
+          </div>
+          <div class="overlay"></div>
+          <div class="shadow"></div>
+          <div class="thickness"></div>
+        </div>
       </div>
- -->
-        <form name="form">
-          <label>Please choose a name for this magazine:</label>  {{magazine.name}}
-          <div style="padding:4px 0 20px 0"><input class="field" ng-model="magazine.name" required/></div>
-          <button ng-click="create()">Create</button>
-          <button ng-click="back()">Cancel</button>
-        </form>
+      <div class="box">
+        <div class="desc" ng-show="user.id">
+          <h1><%=I18n.translate 'page.magazine.new.heading' %></h1>
+          <%= description_to_html "page.magazine.new.description" %>
+        </div>
+        <div class="form">
+          <form name="form">
+            <field>
+              <input class="field" ng-model="magazine.name" required/>
+              <label><%=I18n.translate 'label.magazine.new.name' %></label>
+            </field>
+            <fieldset>
+              <ul>
+                <li class="first">
+                  <input class="field" ng-model="user.email" required/>
+                  <label><%=I18n.translate 'label.email' %></label>
+                </li>
+                <li>
+                  <input class="field" ng-model="user.password" required/>
+                  <label><%=I18n.translate 'label.password' %></label>
+                </li>
+                <li class="last">
+                  <input class="field" ng-model="user.password_repeat" required/>
+                  <label><%=I18n.translate 'label.password_repeat' %></label>
+                </li>
+              </ul>
+            </fieldset>
+            <button ng-click="create()"><%=I18n.translate 'button.magazine.new' %></button>
+            <button ng-click="back()"><%=I18n.translate 'button.back' %></button>
+          </form>
+        </div>
+      </div>
     </section>
   </section>

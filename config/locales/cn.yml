@@ -6,6 +6,17 @@ cn:
       magazine:  "我的杂志"
       bookclip:  "我的收藏"
       circle:    "我的圈子"
+  label:
+    email:           "您的电邮"
+    password:        "您的密码"
+    password_repeat: "拜托再输入一次密码吧 :p"
+    magazine:
+      new:
+        name: "给杂志取个名字吧"
+  button:
+    back: "返回前一页"
+    magazine:
+      new: "大功告成~!"
   persona:
     mr:
       trendy:       "时尚男士"
@@ -26,8 +37,8 @@ cn:
       product:   "商品"
   page:
     intro:
-      heading:     "朝我看<em>．</em>潮我刊"
-      click_here:  "请按这里"
+      heading:    "朝我看<em>．</em>潮我刊"
+      click_here: "请按这里"
       description: [
         "<em>潮．我看</em>",
         [
@@ -37,3 +48,11 @@ cn:
         ],
         "潮我刊．一本让您自我定制的潮流资讯杂志。"
       ]
+    magazine:
+      new:
+        heading: "打造您第一本个性杂志"
+        description: [
+          "您刚刚选择订阅<em>「Reebok」</em>品牌吧。对吗?",
+          "现在，只需简单填妥以下资料注册，就能跟据您的喜好为您<em>度身订造</em>，只您所喜欢看的潮流杂志了",
+          "Enjoy ;-) ~~~"
+        ]

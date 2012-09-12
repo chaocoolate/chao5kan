@@ -2,31 +2,18 @@ var Magazine = {
   new: {
     controller: function($scope, $location, $routeParams, Magazine) {
       $scope.user =  { id: 1 };
-      $scope.magazine = {
-        items: { 
-          type: $routeParams.type, 
-          id:   $routeParams.id
-        }
-      }
       $scope.back = function() {
         history.back();
-      }
+      };
       $scope.create = function() {
-        var request = {
-          data: {
-            user:     $scope.user,
-            magazine: $scope.magazine
-          },
-          success: function(data) {
-            $scope.back();
-          },
-          error: function(data) {
-          }
-        }
         if($scope.form.$valid) {
-          Magazine.create(request.data, request.success, request.error);
+          Magazine.create({ user: $scope.user, magazine: $scope.magazine }, $scope.back);
         }
-      }
+      };
+      Magazine.new($routeParams, function(data) {
+
+        $scope.magazine = data;
+      });
     }
   },
   view: {

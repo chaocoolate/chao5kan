@@ -1,0 +1,20 @@
+{
+  "pics": [
+<% case params[:type] %>
+<%   when 'product' %>
+    { "url": "images/ico.reebok.insta-pump-fury.jpg", "name": "Reebok Insta Pump Fury" },
+<%   when 'serie' %>
+    { "url": "images/ico.SASQUATCHfabrix.jpg", "name": "SASQUATCHfabrix. 2012秋冬男装" },
+<%   when 'brand' %>
+<%     case params[:id].to_i %>
+<%       when 1 %>
+    { "url": "images/ico.brand.reebok.png", "name": "Reebok" },
+<%       when 2 %>
+    { "url": "images/ico.brand.atmos.png", "name": "atmos" },
+<%       when 3 %>
+    { "url": "images/ico.brand.SASQUATCHfabrix.png", "name": "SASQUATCHfabrix." },
+<%     end %>
+<% end %>
+    null, null, null, null, null, null, null, null
+  ]
+}
