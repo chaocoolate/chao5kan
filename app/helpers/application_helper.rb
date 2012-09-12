@@ -4,14 +4,15 @@ module ApplicationHelper
     out = I18n.translate ref
     if out.kind_of? Array
       out.map! do |item|
-        item.kind_of?(Array) ? item.join('<br/>') : item
+        item.kind_of?(Array) ? item.join('\n') : markdown_to_html(item)
       end
-      return '<p>' + out.join('</p><p>') + '</p>'
+      return "<p>" + out.join('</p><p>') + '</p>'
     end
-    return out
+    return markdown_to_html out
   end
 
   def markdown_to_html string
+    return BlueCloth::new(string).to_html
   end
 
 end
