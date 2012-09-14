@@ -1,13 +1,39 @@
-app.control.directive('default', function($compile) {
+app.control.directive('default', function($timeout) {
+  var DOM = {
+    init: function(input) {
+      $input = $(input);
+      $label = $('<label>' + $input.attr('default') + '</label>')
+      // TODO
+      // set focus on magazine name
+      $input.css('position', 'absolute');
+      $input.css('z-index', 10);
+      $input.outerWidth($input.parent().outerWidth());
+      $input.parent().outerHeight($input.outerHeight());
+      $label.innerHeight($input.innerHeight());
+      $label.css('padding-top', $input.css('padding-top'));
+      $label.css('padding-left', $input.css('padding-left'));
+      $label.css('font-size', $input.css('font-size'));
+      $label.css('font-weight', $input.css('font-weight'));
+      $input.after($label);
+      return { input: $input, label: $label };
+    }
+  }
   return {
     restrict: 'A',
-    scope: {},
+    scope: { value:'=ngModel' },
+    controller: function($scope) {
+      $scope.isEmpty = function(value) {
+        $scope.label.css('opacity', value ? 0 : 0.5);
+        $timeout($scope.value = value);
+      }
+    },
     compile: function(element, attrs) {
-      var $input = $(element);
-      var $label = $('<label>' + $(element).attr('default') + '</label>');
-      attrs.$set('ng-change', 'isEmpty()');
-      $input.css('position', 'absolute');
-      $input.after($label);
+      var $div = DOM.init(element);
+      return function link(scope, element) {
+        scope.label = $div.label;
+        scope.value = $div.input.attr('ng-model');
+        scope.$watch(scope.value, scope.isEmpty);
+      }
     }
   }
 });

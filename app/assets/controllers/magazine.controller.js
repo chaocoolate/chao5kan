@@ -11,7 +11,6 @@ var Magazine = {
         }
       };
       Magazine.new($routeParams, function(data) {
-
         $scope.magazine = data;
       });
     }
