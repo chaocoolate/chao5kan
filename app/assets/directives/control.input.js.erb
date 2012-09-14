@@ -38,27 +38,3 @@ app.control.directive('default', function() {
     }
   }
 });
-
-
-
-
-// app.control.directive('testing', function() {
-//   return {
-//     restrict: 'A',
-//     scope: { value:'=ngModel' },
-//     controller: function($scope) {
-//       $scope.isEmpty = function(data) {
-//       };
-//       $scope.foo = function(data) {
-//         $scope.value = data
-//       };
-//     },
-//      compile: function(element, attrs) {
-//        return function link(scope, element, attrs) {
-//          scope.$watch('value', scope.isEmpty)
-//          scope.$watch($(element).attr('ng-model'), scope.foo)
-// // //        scope.$watch(element.value, scope.foo)
-//        }
-//      }
-//   }
-// })
