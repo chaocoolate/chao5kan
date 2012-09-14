@@ -1,10 +1,8 @@
-app.control.directive('default', function($timeout) {
+app.control.directive('default', function() {
   var DOM = {
     init: function(input) {
       $input = $(input);
       $label = $('<label>' + $input.attr('default') + '</label>')
-      // TODO
-      // set focus on magazine name
       $input.css('position', 'absolute');
       $input.css('z-index', 10);
       $input.outerWidth($input.parent().outerWidth());
@@ -24,16 +22,43 @@ app.control.directive('default', function($timeout) {
     controller: function($scope) {
       $scope.isEmpty = function(value) {
         $scope.label.css('opacity', value ? 0 : 0.5);
-        $timeout($scope.value = value);
-      }
+      };
+      $scope.update = function(value) {
+        $scope.value = value
+      };
     },
     compile: function(element, attrs) {
       var $div = DOM.init(element);
       return function link(scope, element) {
         scope.label = $div.label;
-        scope.value = $div.input.attr('ng-model');
-        scope.$watch(scope.value, scope.isEmpty);
+        scope.$watch('value', scope.isEmpty);
+        // NOTE: Update the scope thro this way seperately
+        scope.$watch($div.input.attr('ng-model'), scope.update);
       }
     }
   }
 });
+
+
+
+
+// app.control.directive('testing', function() {
+//   return {
+//     restrict: 'A',
+//     scope: { value:'=ngModel' },
+//     controller: function($scope) {
+//       $scope.isEmpty = function(data) {
+//       };
+//       $scope.foo = function(data) {
+//         $scope.value = data
+//       };
+//     },
+//      compile: function(element, attrs) {
+//        return function link(scope, element, attrs) {
+//          scope.$watch('value', scope.isEmpty)
+//          scope.$watch($(element).attr('ng-model'), scope.foo)
+// // //        scope.$watch(element.value, scope.foo)
+//        }
+//      }
+//   }
+// })
