@@ -14,6 +14,12 @@ app.control.directive('default', function() {
       $label.css('font-weight', $input.css('font-weight'));
       $input.after($label);
       return { input: $input, label: $label };
+    },
+    show: function($div) {
+      $div.css('opacity', 0.5);
+    },
+    hide: function($div) {
+      $div.css('opacity', 0);
     }
   }
   return {
@@ -21,7 +27,7 @@ app.control.directive('default', function() {
     scope: { value:'=ngModel' },
     controller: function($scope) {
       $scope.isEmpty = function(value) {
-        $scope.label.css('opacity', value ? 0 : 0.5);
+        value ? DOM.hide($scope.label) : DOM.show($scope.label);
       };
       $scope.update = function(value) {
         $scope.value = value
