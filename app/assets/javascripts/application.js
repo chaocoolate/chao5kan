@@ -27,6 +27,7 @@
 //= require widget.book
 //= require widget.book.page
 //= require widget.slideshow
+//= require anim
 
 //-- Models --------------------------------------------------------------------
 //= require article

@@ -1,17 +1,17 @@
 <% environment.context_class.instance_eval { include ApplicationHelper } %>
   <section id="Intro" class="gradient">
-      <div class="pic {{persona}}">
-        <div class="clickable" ng-click="view()">
+      <div class="pic {{persona}}" anim data-y="500" data-fade="hide" data-duration="500">
+        <div class="clickable" ng-click="view()" anim="trigger">
           <%=t 'page.intro.click_here' %>
         </div>
       </div>
     </div>
     <div class="logo" title="<%=t 'app.name' %>"></div>
-    <div class="desc">
+    <div class="desc" anim data-fade="hide" data-scale="0.8" data-duration="500">
       <h1><%=t 'page.intro.heading' %></h1>
       <%= description_to_html 'page.intro.description' %>
     </div>
-    <ul selector class="persona" placeholder="persona">
+    <ul selector class="persona" placeholder="persona" anim data-fade="hide" data-scale="0.8" data-duration="500">
       <li class="clickable" data-value="mr_trendy" title="<%=t 'persona.mr.trendy' %>"></li>
       <li class="clickable" data-value="mr_professional" title="<%=t 'persona.mr.professional' %>"></li>
       <li class="clickable" data-value="ms_trendy" title="<%=t 'persona.ms.trendy' %>"></li>
