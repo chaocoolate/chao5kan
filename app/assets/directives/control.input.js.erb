@@ -15,20 +15,16 @@ app.control.directive('default', function() {
       $input.after($label);
       return { input: $input, label: $label };
     },
-    show: function($div) {
-      $div.css('opacity', 0.5);
-    },
-    hide: function($div) {
-      $div.css('opacity', 0);
+    isShown: function(element) {
+      return function(value) {
+        element.css('opacity', value ? 0 : 0.5);
+      }
     }
   }
   return {
     restrict: 'A',
     scope: { value:'=ngModel' },
     controller: function($scope) {
-      $scope.isEmpty = function(value) {
-        value ? DOM.hide($scope.label) : DOM.show($scope.label);
-      };
       $scope.update = function(value) {
         $scope.value = value
       };
@@ -37,7 +33,7 @@ app.control.directive('default', function() {
       var $div = DOM.init(element);
       return function link(scope, element, attrs) {
         scope.label = $div.label;
-        scope.$watch('value', scope.isEmpty);
+        scope.$watch('value', DOM.isShown(scope.label));
         // NOTE: Update the scope thro this way seperately
         scope.$watch(attrs.ngModel, scope.update);
       }
