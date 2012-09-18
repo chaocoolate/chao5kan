@@ -6,7 +6,7 @@
     "about": {
       "type":   "product",
       "typeId": 1, 
-      "title":  "<%=t 'magazine.article.product'%>" 
+      "title":  "<%=t 'datatype.product'%>" 
     },
     "brands": [
       { "id": 1, "name": "Reebok", "icon":"images/ico.brand.reebok.png", "isSubscribed": true },
@@ -34,7 +34,7 @@
     "about": {
       "id": 2,
       "type": "serie",
-      "title": "<%=t 'magazine.article.serie'%>" 
+      "title": "<%=t 'datatype.serie'%>" 
     },
     "brands": [
       { "id": 3, "name": "SASQUATCHfabrix.", "icon":"images/ico.brand.SASQUATCHfabrix.png", "isSubscribed": false }

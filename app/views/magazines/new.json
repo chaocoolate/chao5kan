@@ -1,4 +1,5 @@
 {
+  "type": "<%= t 'datatype.'+params[:type] %>",
   "pics": [
 <% case params[:type] %>
 <%   when 'product' %>

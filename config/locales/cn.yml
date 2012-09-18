@@ -25,6 +25,10 @@ cn:
       trendy:       "时尚女士"
       professional: "事业女士"
     me:             "我自已"
+  datatype:
+    brand:     "品牌"
+    serie:     "系列"
+    product:   "商品"
   magazine:
     article:
       bookclip:  "收藏 / 分享"
@@ -33,11 +37,9 @@ cn:
       subscribe: "订阅"
       block:     "屏蔽相关信息"
       comment:   "评论"
-      serie:     "系列"
-      product:   "商品"
   page:
     intro:
-      heading:    "朝我看<em>．</em>潮我刊"
+      heading:    "朝我看**．**潮我刊"
       click_here: "请按这里"
       description:
         - "**潮．我看**"
@@ -50,6 +52,6 @@ cn:
       new:
         heading: "打造您第一本个性杂志"
         description:
-          - "您刚刚选择订阅**「Reebok」**品牌吧。对吗?"
+          - "您刚刚选择订阅**「{{magazine.pics[0].name}}」**{{magazine.type}}吧。对吗?"
           - "现在，只需简单填妥以下资料注册，就能跟据您的喜好为您**度身订造**，只您所喜欢看的潮流杂志了"
           - "Enjoy ;-) ~~~"

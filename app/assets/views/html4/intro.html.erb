@@ -8,7 +8,7 @@
     </div>
     <div class="logo" title="<%=t 'app.name' %>"></div>
     <div class="desc" anim data-fade="hide" data-scale="0.8" data-duration="500">
-      <h1><%=t 'page.intro.heading' %></h1>
+      <h1><%= markdown_to_html t 'page.intro.heading' %></h1>
       <%= description_to_html 'page.intro.description' %>
     </div>
     <ul selector class="persona" placeholder="persona" anim data-fade="hide" data-scale="0.8" data-duration="500">
