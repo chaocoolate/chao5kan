@@ -2,13 +2,14 @@ app.widget.directive('page', function() {
   return {
     // TODO: detect HTML4 / HTML5
     restrict: 'E',
-    replace: true,
     templateUrl: '<%= asset_path "html4/_book.page.html"  %>',
+    replace: true,
     scope: {
       data: '=placeholder'
     },
-    controller: function($scope, $location) {
+    controller: function($scope) {
       $scope.view = function() {
+        $scope.$emit('view', $scope.data.articleId);
       };
       $scope.thumbUp = function() {
         $scope.data.isThumbUp = !$scope.data.isThumbUp;
@@ -21,7 +22,7 @@ app.widget.directive('page', function() {
 //      Article.thumbDown($scope.data.id)        
       };
       $scope.subscribe = function(object, type) {
-        $location.path('/magazines/new').search({ 'type': type, 'id': object.id });
+        $scope.$emit('subscribe', { type: type, id: object.id });
       };
       $scope.block = function() {
       };
@@ -35,9 +36,11 @@ app.widget.directive('page', function() {
       $element.addClass('page');
       $element.width($element.width() / 2);
       $element.height($element.parent().height());
-      $element.css('float', 'left');
-      $element.css('position', 'absolute');
-      $element.css('overflow', 'hidden');
+      $element.css({
+        float: 'left',
+        position: 'absolute',
+        overflow: 'hidden'
+      });
     }
   }
 });

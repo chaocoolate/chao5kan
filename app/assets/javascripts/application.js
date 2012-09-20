@@ -26,6 +26,7 @@
 //= require control.input
 //= require widget.book
 //= require widget.book.page
+//= require widget.dialog
 //= require widget.slideshow
 //= require anim
 

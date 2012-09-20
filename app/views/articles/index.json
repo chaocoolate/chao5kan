@@ -1,6 +1,6 @@
 [
   {
-    "id":      10,
+    "articleId": 10,
     "title":   "atmos x Reebok INSTA PUMP FURY 雪豹 別注鞋款",
     "summary": "Reebok的经典鞋款系列INSTA PUMP FURY在今个夏季动作多多，先后与多个品牌联手擦出别样新火花。最新联手atmos推出白豹别注鞋款",
     "about": {
@@ -28,7 +28,7 @@
     "isBookmarked":  true
   },
   {
-    "id": 11,
+    "articleId": 11,
     "title":   "美式混搭风SASQUATCH fabrix. 2012秋冬男装新款",
     "summary": "日本潮流品牌 SASQUATCH fabrix. 为庆祝即将到来的10周年纪念，在公布了2012年秋冬男装新款后旋即发布lookbook",
     "about": {

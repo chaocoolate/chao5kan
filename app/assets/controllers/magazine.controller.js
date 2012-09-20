@@ -32,6 +32,14 @@ var Magazine = {
         };
         Article.list(request.data, request.success, request.error);
       };
+      $scope.view = function(event, articleId) {
+        $scope.url = '/articles/:id'.replace(':id', articleId);
+      }
+      $scope.subscribe = function(event, data) {
+        $location.path('/magazines/new').search(data);
+      };
+      $scope.$on('view', $scope.view);
+      $scope.$on('subscribe', $scope.subscribe);
       $scope.more();
     }
   }
