@@ -1,9 +1,9 @@
 app.widget.directive('book', function($compile) {
-  var DOM = {
+  var ui = {
     addPage: function(scope, book) {
       var $book = $(book);
       var pageNumber = $book.children().size() - 1;
-      var html = '<page class="' + DOM.getClass(pageNumber) + '" placeholder="data[' + (pageNumber - 1) + ']"></page>';
+      var html = '<page class="' + ui.getClass(pageNumber) + '" placeholder="data[' + (pageNumber - 1) + ']"></page>';
       $book.children().last().before($compile(html)(scope));
     },
     getClass: function(pageNumber) {
@@ -16,6 +16,14 @@ app.widget.directive('book', function($compile) {
       return className.join(' ');
     }
   };
+  var data = {
+    getInfo: function(article) {
+      switch(article.about.type) {
+        case 'serie':   return { id: article.serie.id,   name: article.serie.name };
+        case 'product': return { id: article.product.id, name: article.product.name };
+      }
+    }
+  };
   return {
     restrict: 'E',
     replace: true,
@@ -23,21 +31,17 @@ app.widget.directive('book', function($compile) {
     scope: {
       data: '=placeholder'
     },
-    link: function(scope, element, attrs) {
-      var init = function(scopeData, data) {
-        switch(data.about.type) {
-          case "serie":   return $.extend(scopeData, { 'id': data.serie.id, 'name' : data.serie.name });
-          case "product": return $.extend(scopeData, { 'id': data.product.id, 'name' : data.product.name });
+    controller: function($scope, $element) {
+      $scope.parse = function(articles) {
+        if(!articles) { return; }
+        for(var i=0; i<articles.length; i++) {
+          $.extend($scope.data[i].about, data.getInfo(articles[i]));
+          ui.addPage($scope, $element);
         }
       }
-      scope.$watch('data', function(data) {
-        if(data) {
-          for(var i=0; i<data.length; i++) {
-            init(scope.data[i].about, data[i]);
-            DOM.addPage(scope, element)
-          }
-        }
-      })
+    },
+    link: function(scope, element, attrs) {
+      scope.$watch('data', scope.parse);
     }
   }
 });

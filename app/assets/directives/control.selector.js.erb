@@ -1,5 +1,5 @@
 app.control.directive('selector', function() {
-  var DOM = {
+  var ui = {
     init: function(selector, changSelectValue) {
       selector.children().each(function() {
         var $item = $(this);
@@ -9,12 +9,13 @@ app.control.directive('selector', function() {
         });
       });
     },
-    select: function(selector, selectValue) {
-      selector.children('.selected').removeClass('selected');
-      selector.children('[data-value="' + selectValue + '"]').addClass('selected');
+    select: function(selector) {
+      return function(value) {
+        selector.children('.selected').removeClass('selected');
+        selector.children('[data-value="' + value + '"]').addClass('selected');
+      }
     }
   }
-
   return {
     scope: {
       placeholder: '='
@@ -30,12 +31,8 @@ app.control.directive('selector', function() {
       if (selectValue) {
         scope.placeholder = selectValue;
       }
-
-      DOM.init(element, scope.select);
-
-      scope.$watch('placeholder', function(value) {
-        DOM.select(element, value);
-      });
+      ui.init(element, scope.select);
+      scope.$watch('placeholder', ui.select(element));
     }
   }
 })
