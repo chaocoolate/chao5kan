@@ -51,6 +51,7 @@ Chao5kan::Application.routes.draw do
   root :to => 'application#template'
   resources :magazines, :only => [ 'new', 'create' ], :constraints => { :format => 'json' }
   resources :articles, :only => [ 'index', 'show' ], :constraints => { :format => 'json' }
+  match 'articles/:id/thumbUp' => 'articles#thumbUp'
 
   # See how all your routes lay out with "rake routes"
 

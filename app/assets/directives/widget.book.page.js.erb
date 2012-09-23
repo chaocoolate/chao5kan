@@ -12,9 +12,15 @@ app.widget.directive('page', function() {
         $scope.$emit('view', $scope.data.articleId);
       };
       $scope.thumbUp = function() {
+        var originalIsThumbUp = $scope.data.isThumbUp;
+        var originalIsThumbDown = $scope.data.isThumbDown;
         $scope.data.isThumbUp = !$scope.data.isThumbUp;
         $scope.data.isThumbDown = false;
-//      Article.thumbUp($scope.data.id)        
+
+        $scope.$emit('thumbUp', $scope.data.articleId, $scope.data.isThumbUp, function() {
+          $scope.data.isThumbUp = originalIsThumbUp;
+          $scope.data.isThumbDown = originalIsThumbDown;
+        });
       };
       $scope.thumbDown = function() {
         $scope.data.isThumbUp = false;
