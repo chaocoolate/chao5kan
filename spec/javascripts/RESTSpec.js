@@ -18,33 +18,21 @@ describe('sys.REST', function() {
     $httpBackend.expectGET('url?key=value').respond();
     var rest = REST({
       routes: {
-        'get': {
-          url: 'url',
-          method: 'GET'
-        }
+        'get': { url: 'url', method: 'GET' }
       }
     });
-    rest.get({
-      "key": "value"
-    });
+    rest.get({ "key": "value" });
     $httpBackend.flush(1);
   });
 
   it('should send POST request with parameters', function() {
-    $httpBackend.expectPOST('url', {
-      "key": "value"
-    }).respond();
+    $httpBackend.expectPOST('url', { "key": "value" }).respond();
     var rest = REST({
       routes: {
-        'post': {
-          url: 'url',
-          method: 'POST'
-        }
+        'post': { url: 'url', method: 'POST' }
       }
     });
-    rest.post({
-      "key": "value"
-    });
+    rest.post({ "key": "value" });
     $httpBackend.flush(1);
   });
 
@@ -52,15 +40,10 @@ describe('sys.REST', function() {
     $httpBackend.expectDELETE('url?key=value').respond();
     var rest = REST({
       routes: {
-        'delete': {
-          url: 'url',
-          method: 'DELETE'
-        }
+        'delete': { url: 'url', method: 'DELETE' }
       }
     });
-    rest.delete({
-      "key": "value"
-    });
+    rest.delete({ "key": "value" });
     $httpBackend.flush(1);
   });
 
@@ -70,15 +53,10 @@ describe('sys.REST', function() {
     }).respond();
     var rest = REST({
       routes: {
-        'put': {
-          url: 'url',
-          method: 'PUT'
-        }
+        'put': { url: 'url', method: 'PUT' }
       }
     });
-    rest.put({
-      "key": "value"
-    });
+    rest.put({ "key": "value" });
     $httpBackend.flush(1);
   });
 
@@ -87,10 +65,7 @@ describe('sys.REST', function() {
     var rest = REST({
       format: 'json',
       routes: {
-        'get': {
-          url: 'url',
-          method: 'GET'
-        }
+        'get': { url: 'url', method: 'GET' }
       }
     });
     rest.get();
@@ -102,10 +77,7 @@ describe('sys.REST', function() {
     var rest = REST({
       format: 'xml',
       routes: {
-        'get': {
-          url: 'url',
-          method: 'GET'
-        }
+        'get': { url: 'url', method: 'GET' }
       }
     });
     rest.get();
