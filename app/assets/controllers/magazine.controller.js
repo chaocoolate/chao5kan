@@ -44,7 +44,7 @@ var Magazine = {
       };
       $scope.view = function(event, articleId) {
         $scope.url = '/articles/:id'.replace(':id', articleId);
-      }
+      };
       $scope.subscribe = function(event, data) {
         $location.path('/magazines/new').search(data);
       };
@@ -54,4 +54,4 @@ var Magazine = {
       $scope.more();
     }
   }
-}
+};

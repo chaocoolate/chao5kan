@@ -36,6 +36,17 @@ describe('sys.REST', function() {
     $httpBackend.flush(1);
   });
 
+  it('should send POST request with parameters in url', function() {
+    $httpBackend.expectPOST('url/1', { "id": 1, "key": "value" }).respond();
+    var rest = REST({
+      routes: {
+        'post': { url: 'url/:id', method: 'POST' }
+      }
+    });
+    rest.post({ "id": 1, "key": "value" });
+    $httpBackend.flush(1);
+  });
+
   it('should send DELETE request with parameters', function() {
     $httpBackend.expectDELETE('url?key=value').respond();
     var rest = REST({
