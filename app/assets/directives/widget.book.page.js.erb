@@ -23,9 +23,15 @@ app.widget.directive('page', function() {
         });
       };
       $scope.thumbDown = function() {
+        var originalIsThumbUp = $scope.data.isThumbUp;
+        var originalIsThumbDown = $scope.data.isThumbDown;
         $scope.data.isThumbUp = false;
         $scope.data.isThumbDown = !$scope.data.isThumbDown;
-//      Article.thumbDown($scope.data.id)        
+
+        $scope.$emit('thumbDown', $scope.data.articleId, $scope.data.isThumbDown, function() {
+          $scope.data.isThumbUp = originalIsThumbUp;
+          $scope.data.isThumbDown = originalIsThumbDown;
+        });
       };
       $scope.subscribe = function(object, type) {
         $scope.$emit('subscribe', { type: type, id: object.id });

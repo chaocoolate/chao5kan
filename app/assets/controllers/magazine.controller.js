@@ -42,6 +42,16 @@ var Magazine = {
           }
         });
       };
+      $scope.thumbDown = function(event, articleId, isThumbDown, reverse) {
+        Article.thumbDown({
+          "id": articleId,
+          "isThumbDown": isThumbDown
+        }, function(response) {
+          if (!response.success) {
+            reverse();
+          }
+        });
+      };
       $scope.view = function(event, articleId) {
         $scope.url = '/articles/:id'.replace(':id', articleId);
       };
@@ -49,6 +59,7 @@ var Magazine = {
         $location.path('/magazines/new').search(data);
       };
       $scope.$on('thumbUp', $scope.thumbUp);
+      $scope.$on('thumbDown', $scope.thumbDown);
       $scope.$on('view', $scope.view);
       $scope.$on('subscribe', $scope.subscribe);
       $scope.more();
