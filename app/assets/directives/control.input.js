@@ -6,7 +6,7 @@ app.control.directive('default', function() {
       $input.css({
         position: 'absolute',
         zIndex: 10
-      })
+      });
       $input.outerWidth($input.parent().outerWidth());
       $input.parent().outerHeight($input.outerHeight());
       $label.innerHeight($input.innerHeight());

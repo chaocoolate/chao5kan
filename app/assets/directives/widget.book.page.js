@@ -2,7 +2,7 @@ app.widget.directive('page', function() {
   return {
     // TODO: detect HTML4 / HTML5
     restrict: 'E',
-    templateUrl: '<%= asset_path "html4/_book.page.html"  %>',
+    templateUrl: app.template.page,
     replace: true,
     scope: {
       data: '=placeholder'

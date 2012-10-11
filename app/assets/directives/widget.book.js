@@ -27,7 +27,7 @@ app.widget.directive('book', function($compile) {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: '<%= asset_path "html4/_book.html"  %>',
+    templateUrl: app.template.book,
     scope: {
       data: '=placeholder'
     },
