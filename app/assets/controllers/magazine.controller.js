@@ -1,7 +1,7 @@
 var Magazine = {
   new: {
     controller: function($scope, $location, $routeParams, Magazine) {
-      $scope.user =  { id: 1 };
+      $scope.user = { id: 1 };
       $scope.back = function() {
         history.back();
       };
@@ -58,10 +58,10 @@ var Magazine = {
       $scope.subscribe = function(event, data) {
         $location.path('/magazines/new').search(data);
       };
-      $scope.$on('thumbUp', $scope.thumbUp);
-      $scope.$on('thumbDown', $scope.thumbDown);
-      $scope.$on('view', $scope.view);
-      $scope.$on('subscribe', $scope.subscribe);
+      $scope.$on(app.events.thumbUp, $scope.thumbUp);
+      $scope.$on(app.events.thumbDown, $scope.thumbDown);
+      $scope.$on(app.events.view, $scope.view);
+      $scope.$on(app.events.subscribe, $scope.subscribe);
       $scope.more();
     }
   }
